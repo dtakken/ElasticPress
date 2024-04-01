@@ -399,6 +399,8 @@ class Documents extends Feature {
 				'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 				'doc'  => 'application/msword',
 				'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+				'csv'  => 'text/csv',
+				'txt'  => 'text/plain',
 			)
 		);
 	}
