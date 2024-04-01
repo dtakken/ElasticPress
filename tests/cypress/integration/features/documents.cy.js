@@ -77,16 +77,21 @@ describe('Documents Feature', () => {
 			'pptx-file.pptx',
 			'application/vnd.openxmlformats-officedocument.presentationml.presentation',
 		);
-		uploadFile('txt-file.txt', 'text/plain');
-		uploadFile('csv-file.csv', 'text/csv');
 
 		cy.visit('/?s=dummy+slide');
 		cy.get('.hentry').should('contain.text', 'pptx-file');
 
-		cy.visit('/?s=Curabitur+interdum+id+turpis+ac+viverra');
-		cy.get('.hentry').should('contain.text', 'txt-file');
+		cy.wpCli('config set ALLOW_UNFILTERED_UPLOADS true --raw').then(() => {
+			uploadFile('txt-file.txt', 'text/plain');
+			uploadFile('csv-file.csv', 'text/csv');
 
-		cy.visit('/?s=Winchester');
-		cy.get('.hentry').should('contain.text', 'csv-file');
+			cy.visit('/?s=Curabitur+interdum+id+turpis+ac+viverra');
+			cy.get('.hentry').should('contain.text', 'txt-file');
+
+			cy.visit('/?s=Winchester');
+			cy.get('.hentry').should('contain.text', 'csv-file');
+
+			cy.wpCli('config set ALLOW_UNFILTERED_UPLOADS false --raw');
+		});
 	});
 });
