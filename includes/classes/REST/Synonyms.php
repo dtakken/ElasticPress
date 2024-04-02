@@ -1,8 +1,8 @@
 <?php
 /**
- * Features REST API Controller
+ * Synonyms REST API Controller.
  *
- * @since 5.0.0
+ * @since 5.1.0
  * @package elasticpress
  */
 
@@ -12,9 +12,9 @@ use ElasticPress\Features;
 use ElasticPress\Utils;
 
 /**
- * Features API controller class.
+ * Synonyms API controller class.
  *
- * @since 5.0.0
+ * @since 5.1.0
  * @package elasticpress
  */
 class Synonyms {

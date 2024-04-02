@@ -872,7 +872,7 @@ class Synonyms {
 	/**
 	 * Setup REST endpoints
 	 *
-	 * @since  3.2
+	 * @since 5.1.0
 	 */
 	public function setup_endpoint() {
 		$controller = new REST\Synonyms();
