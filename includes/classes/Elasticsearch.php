@@ -78,7 +78,7 @@ class Elasticsearch {
 	 * @param  array   $document Formatted Elasticsearch document.
 	 * @param  boolean $blocking Blocking HTTP request or not.
 	 * @since  3.0
-	 * @return boolean|array
+	 * @return boolean|object
 	 */
 	public function index_document( $index, $type, $document, $blocking = true ) {
 		/**
