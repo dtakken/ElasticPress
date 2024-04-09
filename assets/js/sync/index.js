@@ -114,6 +114,10 @@ export const SyncProvider = ({
 				const newErrorCounts = [...errorCounts];
 
 				Object.keys(errors).forEach((e) => {
+					if (!errors[e].solution) {
+						return;
+					}
+
 					const i = newErrorCounts.findIndex((t) => e === t.type);
 
 					if (i !== -1) {

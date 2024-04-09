@@ -203,11 +203,14 @@ describe('Dashboard Sync', () => {
 		cy.get('.ep-sync-errors tr', { timeout: Cypress.config('elasticPressIndexTimeout') })
 			.contains('Limit of total fields [???] in index [???] has been exceeded')
 			.should('exist');
+		cy.get('.ep-sync-errors tr', { timeout: Cypress.config('elasticPressIndexTimeout') })
+			.contains('Number of posts index errors')
+			.should('not.exist');
 
 		/**
 		 * With the error plugin inactive, no errors should appear in the errors tab.
 		 */
-		cy.deactivatePlugin('sync-errors', 'wpCli');
+		cy.deactivatePlugin('sync-error', 'wpCli');
 		cy.visitAdminPage('admin.php?page=elasticpress-sync');
 
 		cy.contains('button', 'Start sync').click();
