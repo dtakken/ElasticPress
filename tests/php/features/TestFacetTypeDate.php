@@ -26,6 +26,10 @@ class TestFacetTypeDate extends BaseTestCase {
 	 * Setup each test.
 	 */
 	public function set_up() {
+		ElasticPress\Elasticsearch::factory()->delete_all_indices();
+		ElasticPress\Indexables::factory()->get( 'post' )->put_mapping();
+		ElasticPress\Indexables::factory()->get( 'post' )->sync_manager->reset_sync_queue();
+
 		$facet_feature    = Features::factory()->get_registered_feature( 'facets' );
 		$this->facet_type = $facet_feature->types['date'];
 
@@ -332,6 +336,7 @@ class TestFacetTypeDate extends BaseTestCase {
 				'ep_integrate' => true,
 			]
 		);
+		$this->assertTrue( $query->elasticsearch_success );
 		$this->assertEquals( 2, $query->found_posts );
 
 		// get all posts published on or after 2022-01-01.
@@ -341,6 +346,7 @@ class TestFacetTypeDate extends BaseTestCase {
 				'ep_integrate' => true,
 			]
 		);
+		$this->assertTrue( $query->elasticsearch_success );
 		$this->assertEquals( 4, $query->found_posts );
 
 		// get all posts published on or before 2022-01-01.
@@ -350,6 +356,7 @@ class TestFacetTypeDate extends BaseTestCase {
 				'ep_integrate' => true,
 			]
 		);
+		$this->assertTrue( $query->elasticsearch_success );
 		$this->assertEquals( 2, $query->found_posts );
 
 		// passing invalid date shouldn't apply any filter.
@@ -359,6 +366,7 @@ class TestFacetTypeDate extends BaseTestCase {
 				'ep_integrate' => true,
 			]
 		);
+		$this->assertTrue( $query->elasticsearch_success );
 		$this->assertEquals( 5, $query->found_posts );
 	}
 }
