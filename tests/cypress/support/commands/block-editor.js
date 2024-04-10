@@ -9,7 +9,9 @@ Cypress.Commands.add('openBlockSettingsSidebar', () => {
 				.click();
 		} else {
 			cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
-			cy.get('.edit-post-sidebar__panel-tab').contains('Block').click();
+			cy.get('.edit-post-sidebar__panel-tab,.edit-post-sidebar__panel-tabs button')
+				.contains('Block')
+				.click();
 		}
 	});
 });
