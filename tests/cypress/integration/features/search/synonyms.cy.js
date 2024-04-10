@@ -3,37 +3,44 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 	 * Delete synonyms recreate test posts before running tests.
 	 */
 	before(() => {
-		cy.wpCli(`post list --post_type="ep-synonym" --ep_integrate=false --format=ids`, true).then(
-			(wpCliResponse) => {
-				if (wpCliResponse.code === 0) {
-					cy.wpCli(`wp post delete ${wpCliResponse.stdout} --force`, true);
-				}
-			},
-		);
-
-		cy.wpCli(
-			'post list --meta_key="_synonyms_tests" --meta_value="1" --ep_integrate=false --format=ids',
-		).then((wpCliResponse) => {
-			if (wpCliResponse.stdout) {
-				cy.wpCli(`post delete ${wpCliResponse.stdout} --force`);
-			}
-		});
-
 		cy.wpCliEval(
-			`$posts = [
+			`
+			$ep_synonyms = get_posts(
+				[
+					'post_type'   => 'ep-synonym',
+					'numberposts' => 999,
+				]
+			);
+			foreach( $ep_synonyms as $synonym ) {
+				wp_delete_post( $synonym->ID, true );
+			}
+
+			$ep_synonyms_tests = get_posts(
+				[
+					'post_type'   => 'any',
+					'meta_key'    => '_synonyms_tests',
+					'meta_value'  => 1,
+					'numberposts' => 999,
+				]
+			);
+			foreach( $ep_synonyms_tests as $test ) {
+				wp_delete_post( $test->ID, true );
+			}
+
+			$posts = [
 				'Plugin',
 				'Extension',
 				'Module',
 				'ElasticPress',
 				'Safe Redirect Manager',
-				'10up',
-				'Fueled',
+				'Bandeirole',
+				'Flag',
+				'Banner',
 				'Red',
 				'Carmine',
 				'Cordovan',
 				'Crimson',
 			];
-
 			foreach ( $posts as $post ) {
 				wp_insert_post(
 					[
@@ -336,9 +343,10 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		/**
 		 * Confirm that our replacements are not returned yet.
 		 */
-		cy.visit('/?s=fueledup');
-		cy.contains('article', '10up').should('not.exist');
-		cy.contains('article', 'Fueled').should('not.exist');
+		cy.visit('/?s=bandeirole');
+		cy.contains('article', 'Bandeirole').should('exist');
+		cy.contains('article', 'Flag').should('not.exist');
+		cy.contains('article', 'Banner').should('not.exist');
 
 		/**
 		 * Enter a term.
@@ -347,7 +355,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.contains('button', 'Replacements').click();
 		cy.get('.ep-synonyms-edit-panel').as('panel');
 		cy.get('@panel').contains('Add Replacements').should('exist');
-		cy.get('@panel').find('input[type="text"]').eq(0).type('fueledup,');
+		cy.get('@panel').find('input[type="text"]').eq(0).type('bandeirole,');
 
 		/**
 		 * Add button should be disabled when there's no replacements.
@@ -357,13 +365,13 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		/**
 		 * Enter a replacement and submit.
 		 */
-		cy.get('@panel').find('input[type="text"]').eq(1).type('10up,');
+		cy.get('@panel').find('input[type="text"]').eq(1).type('flag,');
 		cy.get('@add').click();
 
 		/**
 		 * The replacements should appear in the list.
 		 */
-		cy.contains('.ep-synonyms-list-table tr', 'fueledup').should('exist');
+		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').should('exist');
 
 		/**
 		 * Save synonyms settings.
@@ -376,22 +384,23 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		/**
 		 * Results should reflect the replacement rules.
 		 */
-		cy.visit('/?s=fueledup');
-		cy.contains('article', '10up').should('exist');
-		cy.contains('article', 'Fueled').should('not.exist');
+		cy.visit('/?s=bandeirole');
+		cy.contains('article', 'Bandeirole').should('not.exist');
+		cy.contains('article', 'Flag').should('exist');
+		cy.contains('article', 'Banner').should('not.exist');
 
 		/**
 		 * It should be possible to edit replacement rules.
 		 */
 		cy.visit('/wp-admin/admin.php?page=elasticpress-synonyms');
 		cy.contains('button', 'Replacements').click();
-		cy.contains('.ep-synonyms-list-table tr', 'fueledup').as('row');
+		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').as('row');
 		cy.get('@row').find('button[aria-label="Edit"]').click();
 		cy.get('.ep-synonyms-edit-panel').as('panel');
 		cy.get('@panel').contains('Edit Replacements').should('exist');
-		cy.get('@panel').find('input').eq(1).type('Fueled,');
+		cy.get('@panel').find('input').eq(1).type('banner,');
 		cy.get('@panel').contains('button', 'Save changes').click();
-		cy.contains('.ep-synonyms-list-table tr', '10up, Fueled').should('exist');
+		cy.contains('.ep-synonyms-list-table tr', 'flag, banner').should('exist');
 
 		/**
 		 * Save synonyms settings.
@@ -404,9 +413,10 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		/**
 		 * Results should reflect the new replacements.
 		 */
-		cy.visit('/?s=fueledup');
-		cy.contains('article', '10up').should('exist');
-		cy.contains('article', 'Fueled').should('exist');
+		cy.visit('/?s=bandeirole');
+		cy.contains('article', 'Bandeirole').should('not.exist');
+		cy.contains('article', 'Flag').should('exist');
+		cy.contains('article', 'Banner').should('exist');
 
 		/**
 		 * In the advanced editor, replacements hould be represented as
@@ -414,16 +424,16 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 */
 		cy.visit('/wp-admin/admin.php?page=elasticpress-synonyms');
 		cy.contains('button', 'Switch to advanced text editor').click();
-		cy.get('textarea').should('contain', 'fueledup => 10up, Fueled');
+		cy.get('textarea').should('contain', 'bandeirole => flag, banner');
 
 		/**
 		 * It should be possible to delete replacement rules.
 		 */
 		cy.contains('button', 'Switch to visual editor').click();
 		cy.contains('button', 'Replacements').click();
-		cy.contains('.ep-synonyms-list-table tr', 'fueledup').as('row');
+		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').as('row');
 		cy.get('@row').find('button[aria-label="Delete"]').click();
-		cy.contains('.ep-synonyms-list-table tr', 'fueledup').should('not.exist');
+		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').should('not.exist');
 
 		/**
 		 * Save synonyms settings.
@@ -436,9 +446,10 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		/**
 		 * Results should not longer reflect the deleted rule.
 		 */
-		cy.visit('/?s=fueledup');
-		cy.contains('article', '10up').should('not.exist');
-		cy.contains('article', 'Fueled').should('not.exist');
+		cy.visit('/?s=bandeirole');
+		cy.contains('article', 'Bandeirole').should('exist');
+		cy.contains('article', 'Flag').should('not.exist');
+		cy.contains('article', 'Banner').should('not.exist');
 	});
 
 	/**
