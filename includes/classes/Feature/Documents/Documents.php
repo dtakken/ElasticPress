@@ -128,8 +128,14 @@ class Documents extends Feature {
 			return;
 		}
 
+		// Return if attachments are not involved in the query.
+		// If post_type is empty, attachments will be included automatically.
+		$post_type = (array) $query->get( 'post_type', [] );
+		if ( ! empty( $post_type ) && ! in_array( 'attachment', $post_type, true ) ) {
+			return;
+		}
+
 		$this->maybe_set_post_status( $query );
-		$this->maybe_set_post_type( $query );
 		$this->maybe_set_mime_type( $query );
 	}
 
@@ -521,24 +527,6 @@ class Documents extends Feature {
 		}
 
 		$query->set( 'post_status', array_unique( $post_status ) );
-	}
-
-	/**
-	 * Add the attachment post type to post_type.
-	 *
-	 * @param WP_Query $query WP_Query to modify to search.
-	 * @return void
-	 */
-	protected function maybe_set_post_type( $query ) {
-		$post_type = $query->get( 'post_type', [] );
-		if ( empty( $post_type ) || ! is_string( $post_type ) || 'any' === $post_type ) {
-			return;
-		}
-
-		$post_type   = explode( ' ', $post_type );
-		$post_type[] = 'attachment';
-
-		$query->set( 'post_type', array_unique( $post_type ) );
 	}
 
 	/**
