@@ -308,6 +308,10 @@ class TestDocuments extends BaseTestCase {
 	 * @group documents
 	 */
 	public function test_empty_post_type() {
+		ElasticPress\Features::factory()->activate_feature( 'search' );
+		ElasticPress\Features::factory()->activate_feature( 'documents' );
+		ElasticPress\Features::factory()->setup_features();
+
 		$this->ep_factory->post->create(
 			array(
 				'post_title' => 'findme',
@@ -318,9 +322,11 @@ class TestDocuments extends BaseTestCase {
 			array(
 				'post_title'     => 'findme',
 				'post_type'      => 'attachment',
-				'post_mime_type' => 'image',
+				'post_mime_type' => 'application/msword',
 			)
 		);
+
+		ElasticPress\Elasticsearch::factory()->refresh_indices();
 
 		// No post type, attachment added by default
 		$query = new \WP_Query( [ 's' => 'findme' ] );
