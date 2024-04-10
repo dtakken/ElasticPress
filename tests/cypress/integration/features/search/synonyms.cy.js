@@ -44,15 +44,6 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 				);
 			}`,
 		);
-
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.visitAdminPage('admin.php?page=elasticpress-synonyms');
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
 	});
 
 	/**
@@ -72,6 +63,15 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 				wp_delete_post( $synonym->ID, true );
 			}`,
 		);
+
+		/**
+		 * Save synonyms settings.
+		 */
+		cy.visitAdminPage('admin.php?page=elasticpress-synonyms');
+		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
+		cy.contains('button', 'Save changes').click();
+		cy.wait('@apiRequest');
+		cy.contains('Synonym settings saved.').should('exist');
 	});
 
 	/**
