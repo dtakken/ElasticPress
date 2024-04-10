@@ -5,16 +5,6 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 	before(() => {
 		cy.wpCliEval(
 			`
-			$ep_synonyms = get_posts(
-				[
-					'post_type'   => 'ep-synonym',
-					'numberposts' => 999,
-				]
-			);
-			foreach( $ep_synonyms as $synonym ) {
-				wp_delete_post( $synonym->ID, true );
-			}
-
 			$ep_synonyms_tests = get_posts(
 				[
 					'post_type'   => 'any',
@@ -70,6 +60,18 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 	 */
 	beforeEach(() => {
 		cy.login();
+		cy.wpCliEval(
+			`
+			$ep_synonyms = get_posts(
+				[
+					'post_type'   => 'ep-synonym',
+					'numberposts' => 999,
+				]
+			);
+			foreach( $ep_synonyms as $synonym ) {
+				wp_delete_post( $synonym->ID, true );
+			}`,
+		);
 	});
 
 	/**
