@@ -97,6 +97,13 @@ class ElasticsearchErrorInterpreter {
 			];
 		}
 
+		if ( preg_match( '/Number of (.*) index errors/', $error, $matches ) ) {
+			return [
+				'error'    => $error,
+				'solution' => '',
+			];
+		}
+
 		if ( Utils\is_epio() ) {
 			return [
 				'error'    => $error,
