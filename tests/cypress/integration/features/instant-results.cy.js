@@ -400,7 +400,7 @@ describe('Instant Results Feature', { tags: '@slow' }, () => {
 
 				cy.visit('/');
 				cy.intercept('*search=heavy*').as('apiRequest');
-				cy.get('.wp-block-search').last().as('productSearchBlock');
+				cy.get('.wc-block-product-search,.wp-block-search').last().as('productSearchBlock');
 				cy.get('@productSearchBlock').find('input[type="search"]').type('heavy{enter}');
 				cy.get('.ep-search-modal').should('be.visible');
 				cy.wait('@apiRequest');
@@ -425,7 +425,7 @@ describe('Instant Results Feature', { tags: '@slow' }, () => {
 
 				cy.visit('/');
 				cy.intercept('*search=ergo*').as('apiRequest');
-				cy.get('.wp-block-search').last().as('productSearchBlock');
+				cy.get('.wc-block-product-search,.wp-block-search').last().as('productSearchBlock');
 				cy.get('@productSearchBlock').find('input[type="search"]').type('heavy{enter}');
 				cy.get('.ep-search-modal').should('be.visible');
 				cy.wait('@apiRequest');
