@@ -17,6 +17,19 @@ describe('Instant Results Feature', { tags: '@slow' }, () => {
 		cy.wait('@sidebarsRest');
 	}
 
+	/**
+	 * Create a Product Search widget.
+	 */
+	function createProductSearchWidget() {
+		cy.openWidgetsPage();
+		cy.openBlockInserter();
+		cy.getBlocksList().should('contain.text', 'Product Search'); // Checking if it exists give JS time to process the full list.
+		cy.insertBlock('Product Search');
+		cy.intercept('/wp-json/wp/v2/sidebars/*').as('sidebarsRest');
+		cy.get('.edit-widgets-header__actions button').contains('Update').click();
+		cy.wait('@sidebarsRest');
+	}
+
 	before(() => {
 		cy.deactivatePlugin('classic-widgets woocommerce', 'wpCli');
 		createSearchWidget();
@@ -365,6 +378,62 @@ describe('Instant Results Feature', { tags: '@slow' }, () => {
 				cy.get('.ep-search-modal').should('be.visible');
 				cy.wait('@apiRequest');
 				cy.get('.ep-search-suggestion a').should('have.text', 'wordpress');
+			});
+
+			it('Is possible to set the default post type from a search form', () => {
+				cy.maybeEnableFeature('instant-results');
+
+				createProductSearchWidget();
+
+				/**
+				 * If the Post Type filter is in use, entering a new search
+				 * term should reset post type the filter.
+				 */
+				cy.visitAdminPage('admin.php?page=elasticpress');
+				cy.intercept('/wp-json/elasticpress/v1/features*').as('apiRequest');
+				cy.contains('button', 'Instant Results').click();
+				cy.get('.components-form-token-field__input').type(
+					'{backspace}{backspace}{backspace}post type{downArrow}{enter}{esc}',
+				);
+				cy.contains('button', 'Save changes').click();
+				cy.wait('@apiRequest');
+
+				cy.visit('/');
+				cy.intercept('*search=heavy*').as('apiRequest');
+				cy.get('.wc-block-product-search,.wp-block-search').last().as('productSearchBlock');
+				cy.get('@productSearchBlock').find('input[type="search"]').type('heavy{enter}');
+				cy.get('.ep-search-modal').should('be.visible');
+				cy.wait('@apiRequest');
+				cy.url().should('include', 'post_type=product');
+				cy.get('.ep-search-input').type(' duty');
+				cy.wait(300); // eslint-disable-line
+				cy.wait('@apiRequest');
+				cy.url().should('not.include', 'post_type=product');
+
+				/**
+				 * If the Post Type filter is not in use, entering a new search
+				 * term should not reset the post type filter.
+				 */
+				cy.visitAdminPage('admin.php?page=elasticpress');
+				cy.intercept('/wp-json/elasticpress/v1/features*').as('apiRequest');
+				cy.contains('button', 'Instant Results').click();
+				cy.contains('.components-form-token-field__token', 'Post type')
+					.find('button')
+					.click();
+				cy.contains('button', 'Save changes').click();
+				cy.wait('@apiRequest');
+
+				cy.visit('/');
+				cy.intercept('*search=ergo*').as('apiRequest');
+				cy.get('.wc-block-product-search,.wp-block-search').last().as('productSearchBlock');
+				cy.get('@productSearchBlock').find('input[type="search"]').type('heavy{enter}');
+				cy.get('.ep-search-modal').should('be.visible');
+				cy.wait('@apiRequest');
+				cy.url().should('include', 'post_type=product');
+				cy.get('.ep-search-input').type(' duty');
+				cy.wait(300); // eslint-disable-line
+				cy.wait('@apiRequest');
+				cy.url().should('include', 'post_type=product');
 			});
 		});
 
