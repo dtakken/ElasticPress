@@ -2,7 +2,7 @@
  * WordPress dependencies.
  */
 import { safeHTML } from '@wordpress/dom';
-import { RawHTML, WPElement } from '@wordpress/element';
+import { createInterpolateElement, RawHTML, WPElement } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -35,6 +35,24 @@ export default () => {
 					),
 				)}
 			</RawHTML>
+			<p>
+				{createInterpolateElement(
+					__(
+						'You may need to <a>disable fuzziness</a> to have it working properly.',
+						'elasticpress',
+					),
+					{
+						a: (
+							// eslint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label
+							<a
+								target="_blank"
+								href="https://elasticpress.zendesk.com/hc/en-us/articles/25809934420109-How-to-disable-fuzziness"
+								rel="noreferrer"
+							/>
+						),
+					},
+				)}
+			</p>
 			<VisualEditor
 				labels={{
 					add: __('Add replacements', 'elasticpress'),
