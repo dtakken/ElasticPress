@@ -66,6 +66,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 			$ep_synonyms = get_posts(
 				[
 					'post_type'   => 'ep-synonym',
+					'post_status' => 'any',
 					'numberposts' => 999,
 				]
 			);
