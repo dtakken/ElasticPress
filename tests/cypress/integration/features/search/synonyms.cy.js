@@ -1,5 +1,15 @@
 describe('Post Search Feature - Synonyms Functionality', () => {
 	/**
+	 * Save synonyms settings.
+	 */
+	function saveSynonyms() {
+		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
+		cy.contains('button', 'Save changes').click();
+		cy.wait('@apiRequest');
+		cy.contains('Synonym settings saved.').should('exist');
+	}
+
+	/**
 	 * Delete synonyms recreate test posts before running tests.
 	 */
 	before(() => {
@@ -68,10 +78,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Save synonyms settings.
 		 */
 		cy.visitAdminPage('admin.php?page=elasticpress-synonyms');
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 	});
 
 	/**
@@ -110,13 +117,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 */
 		cy.contains('.ep-synonyms-list-table tr', 'plugin, extension').should('exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the synonym rules.
@@ -138,13 +139,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.get('@panel').contains('button', 'Save changes').click();
 		cy.contains('.ep-synonyms-list-table tr', 'plugin, module').should('exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the new synonyms.
@@ -169,13 +164,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.get('@row').find('button[aria-label="Delete"]').click();
 		cy.contains('.ep-synonyms-list-table tr', 'plugin').should('not.exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the deleted synonyms.
@@ -223,13 +212,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 */
 		cy.contains('.ep-synonyms-list-table tr', 'plugin').should('exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the hyponym rules.
@@ -265,13 +248,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 			.should('exist')
 			.should('not.contain', 'plugin');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the new hyponyms.
@@ -311,13 +288,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.get('@row').find('button[aria-label="Delete"]').click();
 		cy.contains('.ep-synonyms-list-table tr', 'plugin').should('not.exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should not longer reflect the deleted rule.
@@ -342,6 +313,8 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 	 * Test that replacements work as expected.
 	 */
 	it('Is possible to create, edit, and delete replacement rules', () => {
+		cy.activatePlugin('disable-fuzziness', 'wpCli');
+
 		/**
 		 * Confirm that our replacements are not returned yet.
 		 */
@@ -375,13 +348,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 */
 		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').should('exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the replacement rules.
@@ -404,13 +371,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.get('@panel').contains('button', 'Save changes').click();
 		cy.contains('.ep-synonyms-list-table tr', 'flag, banner').should('exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should reflect the new replacements.
@@ -437,13 +398,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.get('@row').find('button[aria-label="Delete"]').click();
 		cy.contains('.ep-synonyms-list-table tr', 'bandeirole').should('not.exist');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Results should not longer reflect the deleted rule.
@@ -452,6 +407,8 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.contains('article', 'Bandeirole').should('exist');
 		cy.contains('article', 'Flag').should('not.exist');
 		cy.contains('article', 'Banner').should('not.exist');
+
+		cy.deactivatePlugin('disable-fuzziness', 'wpCli');
 	});
 
 	/**
@@ -474,13 +431,7 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		cy.contains('button', 'Switch to advanced text editor').click();
 		cy.get('textarea').type('red => red, carmine, cordovan, crimson');
 
-		/**
-		 * Save synonyms settings.
-		 */
-		cy.intercept('/wp-json/elasticpress/v1/synonyms*').as('apiRequest');
-		cy.contains('button', 'Save changes').click();
-		cy.wait('@apiRequest');
-		cy.contains('Synonym settings saved.').should('exist');
+		saveSynonyms();
 
 		/**
 		 * Our rule should be reflected in results.
