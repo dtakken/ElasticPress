@@ -90,9 +90,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Confirm that only results with our search term are returned.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'Extension').should('not.exist');
-		cy.contains('article', 'Module').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'Extension').should('not.exist');
+		cy.contains('article h2', 'Module').should('not.exist');
 
 		/**
 		 * Enter a synonym.
@@ -124,9 +124,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the synonym rules.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'Extension').should('exist');
-		cy.contains('article', 'Module').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'Extension').should('exist');
+		cy.contains('article h2', 'Module').should('not.exist');
 
 		/**
 		 * It should be possible to edit synonym rules.
@@ -146,9 +146,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the new synonyms.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'Extension').should('not.exist');
-		cy.contains('article', 'Module').should('exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'Extension').should('not.exist');
+		cy.contains('article h2', 'Module').should('exist');
 
 		/**
 		 * In the advanced editor, synonyms should be represented as expected.
@@ -171,9 +171,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the deleted synonyms.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'Extension').should('not.exist');
-		cy.contains('article', 'Module').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'Extension').should('not.exist');
+		cy.contains('article h2', 'Module').should('not.exist');
 	});
 
 	/**
@@ -184,9 +184,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Confirm that only results with our search term are returned.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'ElasticPress').should('not.exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'ElasticPress').should('not.exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		/**
 		 * Enter a hypernym.
@@ -219,19 +219,19 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the hyponym rules.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'ElasticPress').should('exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'ElasticPress').should('exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		cy.visit('/?s=elasticpress');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		cy.visit('/?s=redirect');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('not.exist');
-		cy.contains('article', 'Safe Redirect Manager').should('exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('not.exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('exist');
 
 		/**
 		 * It should be possible to edit hyponym rules.
@@ -255,19 +255,19 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the new hyponyms.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'ElasticPress').should('exist');
-		cy.contains('article', 'Safe Redirect Manager').should('exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'ElasticPress').should('exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('exist');
 
 		cy.visit('/?s=elasticpress');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		cy.visit('/?s=redirect');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('not.exist');
-		cy.contains('article', 'Safe Redirect Manager').should('exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('not.exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('exist');
 
 		/**
 		 * In the advanced editor, hyponyms should be represented as
@@ -295,19 +295,19 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should not longer reflect the deleted rule.
 		 */
 		cy.visit('/?s=plugin');
-		cy.contains('article', 'Plugin').should('exist');
-		cy.contains('article', 'ElasticPress').should('not.exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('exist');
+		cy.contains('article h2', 'ElasticPress').should('not.exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		cy.visit('/?s=elasticpress');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('exist');
-		cy.contains('article', 'Safe Redirect Manager').should('not.exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('not.exist');
 
 		cy.visit('/?s=redirect');
-		cy.contains('article', 'Plugin').should('not.exist');
-		cy.contains('article', 'ElasticPress').should('not.exist');
-		cy.contains('article', 'Safe Redirect Manager').should('exist');
+		cy.contains('article h2', 'Plugin').should('not.exist');
+		cy.contains('article h2', 'ElasticPress').should('not.exist');
+		cy.contains('article h2', 'Safe Redirect Manager').should('exist');
 	});
 
 	/**
@@ -320,9 +320,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Confirm that our replacements are not returned yet.
 		 */
 		cy.visit('/?s=bandeirole');
-		cy.contains('article', 'Bandeirole').should('exist');
-		cy.contains('article', 'Flag').should('not.exist');
-		cy.contains('article', 'Banner').should('not.exist');
+		cy.contains('article h2', 'Bandeirole').should('exist');
+		cy.contains('article h2', 'Flag').should('not.exist');
+		cy.contains('article h2', 'Banner').should('not.exist');
 
 		/**
 		 * Enter a term.
@@ -355,9 +355,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the replacement rules.
 		 */
 		cy.visit('/?s=bandeirole');
-		cy.contains('article', 'Bandeirole').should('not.exist');
-		cy.contains('article', 'Flag').should('exist');
-		cy.contains('article', 'Banner').should('not.exist');
+		cy.contains('article h2', 'Bandeirole').should('not.exist');
+		cy.contains('article h2', 'Flag').should('exist');
+		cy.contains('article h2', 'Banner').should('not.exist');
 
 		/**
 		 * It should be possible to edit replacement rules.
@@ -378,9 +378,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should reflect the new replacements.
 		 */
 		cy.visit('/?s=bandeirole');
-		cy.contains('article', 'Bandeirole').should('not.exist');
-		cy.contains('article', 'Flag').should('exist');
-		cy.contains('article', 'Banner').should('exist');
+		cy.contains('article h2', 'Bandeirole').should('not.exist');
+		cy.contains('article h2', 'Flag').should('exist');
+		cy.contains('article h2', 'Banner').should('exist');
 
 		/**
 		 * In the advanced editor, replacements hould be represented as
@@ -405,9 +405,9 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Results should not longer reflect the deleted rule.
 		 */
 		cy.visit('/?s=bandeirole');
-		cy.contains('article', 'Bandeirole').should('exist');
-		cy.contains('article', 'Flag').should('not.exist');
-		cy.contains('article', 'Banner').should('not.exist');
+		cy.contains('article h2', 'Bandeirole').should('exist');
+		cy.contains('article h2', 'Flag').should('not.exist');
+		cy.contains('article h2', 'Banner').should('not.exist');
 
 		cy.deactivatePlugin('disable-fuzziness', 'wpCli');
 	});
@@ -420,10 +420,10 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Our rule should not be reflected in results yet.
 		 */
 		cy.visit('/?s=red');
-		cy.contains('article', 'Red').should('exist');
-		cy.contains('article', 'Carmine').should('not.exist');
-		cy.contains('article', 'Cordovan').should('not.exist');
-		cy.contains('article', 'Crimson').should('not.exist');
+		cy.contains('article h2', 'Red').should('exist');
+		cy.contains('article h2', 'Carmine').should('not.exist');
+		cy.contains('article h2', 'Cordovan').should('not.exist');
+		cy.contains('article h2', 'Crimson').should('not.exist');
 
 		/**
 		 * Add a hyponym rule to the text editor.
@@ -438,16 +438,16 @@ describe('Post Search Feature - Synonyms Functionality', () => {
 		 * Our rule should be reflected in results.
 		 */
 		cy.visit('/?s=red');
-		cy.contains('article', 'Red').should('exist');
-		cy.contains('article', 'Carmine').should('exist');
-		cy.contains('article', 'Cordovan').should('exist');
-		cy.contains('article', 'Crimson').should('exist');
+		cy.contains('article h2', 'Red').should('exist');
+		cy.contains('article h2', 'Carmine').should('exist');
+		cy.contains('article h2', 'Cordovan').should('exist');
+		cy.contains('article h2', 'Crimson').should('exist');
 
 		cy.visit('/?s=carmine');
-		cy.contains('article', 'Red').should('not.exist');
-		cy.contains('article', 'Carmine').should('exist');
-		cy.contains('article', 'Cordovan').should('not.exist');
-		cy.contains('article', 'Crimson').should('not.exist');
+		cy.contains('article h2', 'Red').should('not.exist');
+		cy.contains('article h2', 'Carmine').should('exist');
+		cy.contains('article h2', 'Cordovan').should('not.exist');
+		cy.contains('article h2', 'Crimson').should('not.exist');
 
 		/**
 		 * The settings page should remember that we used the text editor.
