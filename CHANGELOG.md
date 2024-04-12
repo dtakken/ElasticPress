@@ -16,8 +16,9 @@ All notable changes to this project will be documented in this file, per [the Ke
 ## [5.1.0] - 2024-XX-XX
 
 ### Added
-* [Filters] New `ep_facet_enabled_in_editor` filter to enabled facet blocks in the post editor. Props [@JiveDig] and(https://github.com/JiveDig) and [@felipeelia](https://github.com/felipeelia) via [#3845](https://github.com/10up/ElasticPress/pull/3845).
+* [Filters] New `ep_facet_enabled_in_editor` filter to enabled facet blocks in the post editor. Props [@JiveDig](https://github.com/JiveDig) and [@felipeelia](https://github.com/felipeelia) via [#3845](https://github.com/10up/ElasticPress/pull/3845).
 * Official support to Elasticsearch 8.x. Props [@felipeelia](https://github.com/felipeelia) via [#3854](https://github.com/10up/ElasticPress/pull/3854).
+* A new Sync errors tab, with errors grouped by type and links to support documentation when available. Props [@JakePT](https://github.com/JakePT) and [@apurvrdx1](https://github.com/apurvrdx1) via [#3803](https://github.com/10up/ElasticPress/pull/3803).
 * [WooCommerce] HPOS compatibility notice for WooCommerce Orders. Props [@felipeelia](https://github.com/felipeelia) via [#3861](https://github.com/10up/ElasticPress/pull/3861).
 * Infinite loop when using excerpt highlighting with posts that use blocks that print an excerpt. Props [@felipeelia](https://github.com/felipeelia) and [@JakePT](https://github.com/JakePT) via [#3867](https://github.com/10up/ElasticPress/pull/3867).
 * Context parameter to the `get_capability()` function. Props [@felipeelia](https://github.com/felipeelia) and [@selim13](https://github.com/selim13) via [#3866](https://github.com/10up/ElasticPress/pull/3866).
@@ -28,12 +29,11 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Changed
 * Acknowledge all Elasticsearch modules, making the Documents feature available in ES 8 installations by default. Props [@felipeelia](https://github.com/felipeelia), [@Serverfox](https://github.com/Serverfox), and [@jerasokcm](https://github.com/jerasokcm) via [#3844](https://github.com/10up/ElasticPress/pull/3844).
 * [Documents] Index CSV and TXT file contents. Props [@felipeelia](https://github.com/felipeelia) via [#3885](https://github.com/10up/ElasticPress/pull/3885).
+* [Documents] Only set documents-related parameters if no post type was set or if the list already contains attachments. Props [@felipeelia](https://github.com/felipeelia) via [#3889](https://github.com/10up/ElasticPress/pull/3889).
 * Aggregations created with the 'aggs' WP_Query parameter, are now retrievable using `$query->query_vars['ep_aggregations']`. Props [@felipeelia](https://github.com/felipeelia) via [#3847](https://github.com/10up/ElasticPress/pull/3847).
 * Major refactor of the `Term::format_args()` method and conditionally set search fields for term queries in REST API requests. Props [@felipeelia](https://github.com/felipeelia) and [@mgurtzweiler](https://github.com/mgurtzweiler) via [#3869](https://github.com/10up/ElasticPress/pull/3869).
 * Replaced `lee-dohm/no-response` with `actions/stale` to help with closing no-response/stale issues. Props [@jeffpaul](https://github.com/jeffpaul) via [#3870](https://github.com/10up/ElasticPress/pull/3870).
 
-### Deprecated
-### Removed
 ### Fixed
 * [Autosuggest] Hide the Autosuggest Endpoint URL field for EP.io users. Props [@felipeelia](https://github.com/felipeelia) and [@JakePT](https://github.com/JakePT) via [#3835](https://github.com/10up/ElasticPress/pull/3835).
 * [Autosuggest] Google Analytics integration gtag call. Props [@felipeelia](https://github.com/felipeelia) and [@JakePT](https://github.com/JakePT) via [#3835](https://github.com/10up/ElasticPress/pull/3835).
@@ -43,6 +43,8 @@ All notable changes to this project will be documented in this file, per [the Ke
 * [Synonyms] Fix Synonyms case sensitive issue. Props [@burhandodhy](https://github.com/burhandodhy) via [#3857](https://github.com/10up/ElasticPress/pull/3857).
 * [Documents] Media search returns no result in admin dashboard. Props [@felipeelia](https://github.com/felipeelia) and [@burhandodhy](https://github.com/burhandodhy) via [#3837](https://github.com/10up/ElasticPress/pull/3837) and [#3871](https://github.com/10up/ElasticPress/pull/3871).
 * [WooCommerce] E2e tests. Props [@felipeelia](https://github.com/felipeelia) via [#3848](https://github.com/10up/ElasticPress/pull/3848).
+* [Instant Results] A default post type filter set by a field in the search form was cleared if a new search term was entered. Props [@JakePT](https://github.com/JakePT) and [@burhandodhy](https://github.com/burhandodhy) via [#3891](https://github.com/10up/ElasticPress/pull/3891).
+* Inconsistent search results when calling the same function via PHP and Ajax. Props [@burhandodhy](https://github.com/burhandodhy) via [#3875](https://github.com/10up/ElasticPress/pull/3875).
 * Unit test related to blog creation. Props [@felipeelia](https://github.com/felipeelia) and [@burhandodhy](https://github.com/burhandodhy) via [#3839](https://github.com/10up/ElasticPress/pull/3839).
 * Correct PHPdoc return type for `Elasticsearch::index_document` and related methods. Props [@ictbeheer](https://github.com/ictbeheer) via [#3881](https://github.com/10up/ElasticPress/pull/3881).
 
