@@ -6,8 +6,8 @@ describe('Custom Results', () => {
 			`
 			$ep_pointers = get_posts(
 				[
-					'post_type' => 'ep-pointer',
-					'per_page'  => 999,
+					'post_type'   => 'ep-pointer',
+					'numberposts' => 999,
 				]
 			);
 			foreach( $ep_pointers as $pointer ) {
@@ -19,7 +19,7 @@ describe('Custom Results', () => {
 					's'            => '${testPost}',
 					'ep_integrate' => false,
 					'fields'       => 'ids',
-					'per_page'     => 999,
+					'numberposts'  => 999,
 				]
 			);
 			foreach( $posts->posts as $post ) {
