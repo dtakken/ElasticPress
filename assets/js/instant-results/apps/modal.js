@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies.
  */
 import { useApiSearch } from '../../api-search';
+import { facets } from '../config';
 import { getPostTypesFromForm } from '../utilities';
 import Modal from '../components/common/modal';
 import Layout from '../components/layout';
@@ -60,8 +61,9 @@ export default () => {
 
 			const { value } = inputRef.current;
 			const post_type = getPostTypesFromForm(inputRef.current.form);
+			const updateDefaults = !facets.some((f) => f.name === 'post_type');
 
-			search({ post_type, search: value });
+			search({ post_type, search: value, updateDefaults });
 		},
 		[inputRef, search],
 	);

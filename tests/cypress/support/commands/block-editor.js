@@ -4,10 +4,14 @@ Cypress.Commands.add('openBlockSettingsSidebar', () => {
 	cy.get('body').then(($el) => {
 		if ($el.hasClass('widgets-php')) {
 			cy.get('.edit-widgets-header__actions button[aria-label="Settings"]').click();
-			cy.get('.edit-widgets-sidebar__panel-tab').contains('Block').click();
+			cy.get('.edit-widgets-sidebar__panel-tab,.edit-widgets-sidebar__panel-tabs button')
+				.contains('Block')
+				.click();
 		} else {
 			cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
-			cy.get('.edit-post-sidebar__panel-tab').contains('Block').click();
+			cy.get('.edit-post-sidebar__panel-tab,.edit-post-sidebar__panel-tabs button')
+				.contains('Block')
+				.click();
 		}
 	});
 });
@@ -21,7 +25,9 @@ Cypress.Commands.add('openBlockInserter', () => {
 		if ($body.hasClass('widgets-php')) {
 			cy.get('.edit-widgets-header-toolbar__inserter-toggle').click();
 		} else {
-			cy.get('.edit-post-header-toolbar__inserter-toggle').click();
+			cy.get(
+				'.edit-post-header-toolbar__inserter-toggle,.editor-document-tools__inserter-toggle',
+			).click();
 		}
 	});
 });

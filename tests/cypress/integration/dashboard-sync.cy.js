@@ -20,6 +20,7 @@ describe('Dashboard Sync', () => {
 	}
 
 	before(() => {
+		cy.deactivatePlugin('sync-error', 'wpCli');
 		cy.login();
 	});
 
@@ -186,5 +187,38 @@ describe('Dashboard Sync', () => {
 		 */
 		cy.reload();
 		cy.contains('.components-checkbox-control', 'Delete all data').should('exist');
+	});
+
+	it('Should display a list of error types when errors occur during sync', () => {
+		/**
+		 * With the error plugin active, an error should appear in the errors tab.
+		 */
+		cy.activatePlugin('sync-error', 'wpCli');
+		cy.visitAdminPage('admin.php?page=elasticpress-sync');
+
+		cy.contains('button', 'Log').click();
+		cy.contains('button', 'Errors').click();
+		cy.contains('.ep-sync-errors', 'No errors found in the log.').should('exist');
+		cy.contains('button', 'Start sync').click();
+		cy.get('.ep-sync-errors tr', { timeout: Cypress.config('elasticPressIndexTimeout') })
+			.contains('Limit of total fields [???] in index [???] has been exceeded')
+			.should('exist');
+		cy.get('.ep-sync-errors tr', { timeout: Cypress.config('elasticPressIndexTimeout') })
+			.contains('Number of posts index errors')
+			.should('not.exist');
+
+		/**
+		 * With the error plugin inactive, no errors should appear in the errors tab.
+		 */
+		cy.deactivatePlugin('sync-error', 'wpCli');
+		cy.visitAdminPage('admin.php?page=elasticpress-sync');
+
+		cy.contains('button', 'Start sync').click();
+		cy.get('.ep-sync-progress strong', {
+			timeout: Cypress.config('elasticPressIndexTimeout'),
+		}).should('contain.text', 'Sync complete');
+		cy.contains('button', 'Log').click();
+		cy.contains('button', 'Errors').click();
+		cy.contains('.ep-sync-errors', 'No errors found in the log.').should('exist');
 	});
 });
