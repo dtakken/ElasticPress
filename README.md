@@ -38,7 +38,7 @@ Simply downloading the repository files is not enough to have the plugin working
 
 `npm install && npm run build`
 
-[Node.js](https://nodejs.org/en/) (v14) and [npm](https://www.npmjs.com/) (v8) are required.
+[Node.js](https://nodejs.org/en/) (v18) and [npm](https://www.npmjs.com/) (v8) are required.
 
 ## React Components
 
