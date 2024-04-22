@@ -105,6 +105,16 @@ class ElasticsearchErrorInterpreter {
 		}
 
 		if ( Utils\is_epio() ) {
+			if ( preg_match( '/You have reached the limit of indices of your plan/', $error, $matches ) ) {
+				return [
+					'error'    => $error,
+					'solution' => sprintf(
+						/* translators: ElasticPress.io My Account URL */
+						__( 'Please go to your <a href="%s">ElasticPress.io Account Page</a> and delete unused indices or upgrade your plan.', 'elasticpress' ),
+						'https://www.elasticpress.io/my-account/'
+					),
+				];
+			}
 			return [
 				'error'    => $error,
 				'solution' => sprintf(
