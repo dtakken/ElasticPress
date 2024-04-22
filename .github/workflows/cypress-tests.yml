@@ -86,7 +86,7 @@ jobs:
       run: npm run cypress:run -- --env grepTags=${{ matrix.testGroup }}
 
     - name: Make artifacts available
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: failure()
       with:
         name: cypress-artifact-${{ matrix.core.name }}-${{ matrix.testGroup }}
@@ -174,7 +174,7 @@ jobs:
       run: npm run cypress:run -- --env grepTags=${{ matrix.testGroup }}
 
     - name: Make artifacts available
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: failure()
       with:
         name: cypress-artifact-epio-${{ matrix.core.name }}-${{ matrix.testGroup }}
