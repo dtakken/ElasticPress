@@ -1532,7 +1532,7 @@ class IndexHelper {
 	 * @return boolean
 	 */
 	protected function should_suggest_retry( $message ) {
-		return ! preg_match( '/You have reached the limit of indices of your plan/', $message );
+		return ! preg_match( '/you have reached the limit of indices your plan supports/', $message );
 	}
 
 	/**
