@@ -132,4 +132,23 @@ class TestElasticsearchErrorInterpreter extends BaseTestCase {
 		$this->assertSame( 'Limit of total fields [???] in index [???] has been exceeded', $suggested['error'] );
 		$this->assertSame( $solution, $suggested['solution'] );
 	}
+
+	/**
+	 * Test the `maybe_suggest_solution_for_es` method when the indices limit was reached on EP.io
+	 *
+	 * @since 5.1.0
+	 * @group elasticsearch-error-interpreter
+	 */
+	public function test_maybe_suggest_solution_for_es_limit_of_indices() {
+		$this->force_epio();
+
+		$error_interpreter = new ElasticsearchErrorInterpreter();
+
+		$error     = 'It seems you have reached the limit of indices your plan supports and we were not able to create a new index. Currently, you can have up to 3 indices.';
+		$solution  = 'Please refer to <a href="https://elasticpress.zendesk.com/hc/en-us/articles/26165267320461">this article</a> outlining how to address this issue.';
+		$suggested = $error_interpreter->maybe_suggest_solution_for_es( $error );
+
+		$this->assertSame( $error, $suggested['error'] );
+		$this->assertSame( $solution, $suggested['solution'] );
+	}
 }
