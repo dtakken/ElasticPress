@@ -37,6 +37,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 * Major refactor of the `Term::format_args()` method and conditionally set search fields for term queries in REST API requests. Props [@felipeelia](https://github.com/felipeelia) and [@mgurtzweiler](https://github.com/mgurtzweiler) via [#3869](https://github.com/10up/ElasticPress/pull/3869).
 * Replaced `lee-dohm/no-response` with `actions/stale` to help with closing no-response/stale issues. Props [@jeffpaul](https://github.com/jeffpaul) via [#3870](https://github.com/10up/ElasticPress/pull/3870).
 * Bumped actions/upload-artifact from v3 to v4. Props [@iamdharmesh](https://github.com/iamdharmesh) via [#3897](https://github.com/10up/ElasticPress/pull/3897).
+* Required node version. Props [@oscarssanchez](https://github.com/oscarssanchez) via [#3896](https://github.com/10up/ElasticPress/pull/3896).
 
 ### Fixed
 * [Autosuggest] Hide the Autosuggest Endpoint URL field for EP.io users. Props [@felipeelia](https://github.com/felipeelia) and [@JakePT](https://github.com/JakePT) via [#3835](https://github.com/10up/ElasticPress/pull/3835).
