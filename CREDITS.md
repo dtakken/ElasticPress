@@ -236,6 +236,7 @@ Thank you to all the people who have already contributed to this repository via 
 [@bispldeveloper](https://github.com/bispldeveloper),
 [Michael Gurtzweiler (@mgurtzweiler)](https://github.com/mgurtzweiler),
 [Maarten Bruna (@ictbeheer)](https://github.com/ictbeheer),
+[Dharmesh Patel (@iamdharmesh)](https://github.com/iamdharmesh),
 and
 [@qazaqstan2025](https://github.com/qazaqstan2025).
 
