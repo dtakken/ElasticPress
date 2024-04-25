@@ -199,7 +199,15 @@ describe('Dashboard Sync', () => {
 		cy.contains('button', 'Log').click();
 		cy.contains('button', 'Errors').click();
 		cy.contains('.ep-sync-errors', 'No errors found in the log.').should('exist');
+
+		/**
+		 * Reload the page, so we can check if the Error Log tab is opened by default when an error occurs.
+		 */
+		cy.visitAdminPage('admin.php?page=elasticpress-sync');
 		cy.contains('button', 'Start sync').click();
+		cy.get('.ep-sync-errors__table', {
+			timeout: Cypress.config('elasticPressIndexTimeout'),
+		}).should('be.visible');
 		cy.get('.ep-sync-errors tr', { timeout: Cypress.config('elasticPressIndexTimeout') })
 			.contains('Limit of total fields [???] in index [???] has been exceeded')
 			.should('exist');

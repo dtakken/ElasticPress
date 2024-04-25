@@ -82,7 +82,11 @@ export default () => {
 
 	return (
 		<>
-			<TabPanel className="ep-sync-log" tabs={tabs}>
+			<TabPanel
+				className="ep-sync-log"
+				initialTabName={errorCount > 0 ? 'error' : 'full'}
+				tabs={tabs}
+			>
 				{({ name }) => {
 					switch (name) {
 						case 'full':
