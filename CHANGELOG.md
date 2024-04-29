@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Security
 -->
 
-## [5.1.0] - 2024-XX-XX
+## [5.1.0] - 2024-04-29
 
 ### Added
 * [Filters] New `ep_facet_enabled_in_editor` filter to enabled facet blocks in the post editor. Props [@JiveDig](https://github.com/JiveDig) and [@felipeelia](https://github.com/felipeelia) via [#3845](https://github.com/10up/ElasticPress/pull/3845).
