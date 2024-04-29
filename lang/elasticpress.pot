@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: ElasticPress 5.0.2\n"
+"Project-Id-Version: ElasticPress 5.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/elasticpress\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-16T13:04:02+00:00\n"
+"POT-Creation-Date: 2024-04-29T12:35:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: elasticpress\n"
@@ -136,7 +136,7 @@ msgstr ""
 #: includes/classes/AdminNotices.php:813
 #: includes/classes/ElasticsearchErrorInterpreter.php:93
 #: includes/classes/StatusReport/ElasticPressIo.php:30
-#: assets/js/sync/index.js:230
+#: assets/js/sync/index.js:269
 #: dist/js/sync-script.js:1
 msgid "ElasticPress.io"
 msgstr ""
@@ -144,7 +144,7 @@ msgstr ""
 #: includes/classes/AdminNotices.php:797
 #: includes/classes/AdminNotices.php:813
 #: includes/classes/ElasticsearchErrorInterpreter.php:93
-#: assets/js/sync/index.js:231
+#: assets/js/sync/index.js:270
 #: dist/js/sync-script.js:1
 msgid "Elasticsearch"
 msgstr ""
@@ -411,19 +411,19 @@ msgstr ""
 msgid "This command is deprecated. Please use %s instead."
 msgstr ""
 
-#: includes/classes/Elasticsearch.php:987
+#: includes/classes/Elasticsearch.php:999
 msgid "Error while getting the index settings."
 msgstr ""
 
-#: includes/classes/Elasticsearch.php:1391
+#: includes/classes/Elasticsearch.php:1403
 msgid "Site not indexed. <p>Please run: <code>wp elasticpress index --setup --network-wide</code> using WP-CLI. Or use the index button on the left of this screen.</p>"
 msgstr ""
 
-#: includes/classes/Elasticsearch.php:1395
+#: includes/classes/Elasticsearch.php:1407
 msgid "Site not indexed. <p>Please run: <code>wp elasticpress index --setup</code> using WP-CLI. Or use the index button on the left of this screen.</p>"
 msgstr ""
 
-#: includes/classes/Elasticsearch.php:1577
+#: includes/classes/Elasticsearch.php:1593
 msgid "Elasticsearch Host is not available."
 msgstr ""
 
@@ -452,13 +452,18 @@ msgstr ""
 msgid "Your website content has more public custom fields than %1$s is able to store. Check our articles about <a href=\"%2$s\">Elasticsearch field limitations</a> and <a href=\"%3$s\">how to index just the custom fields you need</a> and sync again."
 msgstr ""
 
+#. translators: ElasticPress.io Article URL
+#: includes/classes/ElasticsearchErrorInterpreter.php:113
+msgid "Please refer to <a href=\"%s\">this article</a> outlining how to address this issue."
+msgstr ""
+
 #. translators: ElasticPress.io My Account URL
-#: includes/classes/ElasticsearchErrorInterpreter.php:105
+#: includes/classes/ElasticsearchErrorInterpreter.php:122
 msgid "We did not recognize this error. Please open an ElasticPress.io <a href=\"%s\">support ticket</a> so we can troubleshoot further."
 msgstr ""
 
 #. translators: New GitHub issue URL
-#: includes/classes/ElasticsearchErrorInterpreter.php:115
+#: includes/classes/ElasticsearchErrorInterpreter.php:132
 msgid "We did not recognize this error. Please consider opening a <a href=\"%s\">GitHub Issue</a> so we can add it to our list of supported errors."
 msgstr ""
 
@@ -484,7 +489,7 @@ msgstr ""
 
 #: includes/classes/Feature.php:392
 #: includes/classes/StatusReport/ElasticPress.php:79
-#: includes/dashboard.php:635
+#: includes/dashboard.php:648
 #: includes/partials/settings-page.php:34
 #: assets/js/blocks/facets/common/edit.js:87
 #: assets/js/blocks/facets/date/edit.js:23
@@ -507,20 +512,18 @@ msgstr ""
 #: includes/classes/Feature.php:398
 #: includes/classes/Feature/Autosuggest/Autosuggest.php:112
 #: includes/classes/Feature/InstantResults/InstantResults.php:184
-#: includes/classes/Feature/Search/Search.php:625
-#: includes/classes/Feature/Search/Search.php:642
-#: includes/classes/Feature/Search/Search.php:663
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:195
+#: includes/classes/Feature/Search/Search.php:632
+#: includes/classes/Feature/Search/Search.php:649
+#: includes/classes/Feature/Search/Search.php:670
 msgid "Enabled"
 msgstr ""
 
 #: includes/classes/Feature.php:399
 #: includes/classes/Feature/Autosuggest/Autosuggest.php:113
 #: includes/classes/Feature/InstantResults/InstantResults.php:187
-#: includes/classes/Feature/Search/Search.php:626
-#: includes/classes/Feature/Search/Search.php:643
-#: includes/classes/Feature/Search/Search.php:664
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:196
+#: includes/classes/Feature/Search/Search.php:633
+#: includes/classes/Feature/Search/Search.php:650
+#: includes/classes/Feature/Search/Search.php:671
 msgid "Disabled"
 msgstr ""
 
@@ -567,7 +570,7 @@ msgid "When enabled, a gtag tracking event is fired when an autosuggest result i
 msgstr ""
 
 #: includes/classes/Feature/Autosuggest/Autosuggest.php:128
-#: includes/classes/Feature/Autosuggest/Autosuggest.php:910
+#: includes/classes/Feature/Autosuggest/Autosuggest.php:911
 msgid "Endpoint URL"
 msgstr ""
 
@@ -576,7 +579,7 @@ msgid "Your autosuggest endpoint is set in wp-config.php"
 msgstr ""
 
 #: includes/classes/Feature/Autosuggest/Autosuggest.php:136
-#: includes/classes/Feature/Autosuggest/Autosuggest.php:908
+#: includes/classes/Feature/Autosuggest/Autosuggest.php:909
 msgid "This address will be exposed to the public."
 msgstr ""
 
@@ -722,7 +725,7 @@ msgid "Documents"
 msgstr ""
 
 #: includes/classes/Feature/Documents/Documents.php:30
-#: includes/classes/Feature/Documents/Documents.php:359
+#: includes/classes/Feature/Documents/Documents.php:326
 msgid "Website search results will include popular document file types, using file names as well as their content. Supported file types include: ppt, pptx, doc, docx, xls, xlsx, pdf."
 msgstr ""
 
@@ -730,23 +733,23 @@ msgstr ""
 msgid "https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#documents"
 msgstr ""
 
-#: includes/classes/Feature/Documents/Documents.php:343
+#: includes/classes/Feature/Documents/Documents.php:310
 msgid "The <a href=\"https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest-attachment.html\">Ingest Attachment plugin</a> for Elasticsearch is not installed. To get the most out of ElasticPress, without the hassle of Elasticsearch management, check out <a href=\"https://elasticpress.io\">ElasticPress.io</a> hosting."
 msgstr ""
 
-#: includes/classes/Feature/Documents/Documents.php:346
+#: includes/classes/Feature/Documents/Documents.php:313
 msgid "This feature modifies the default user experience for your visitors by adding popular document file types to search results. All supported documents (PDFs and Microsoft Office) uploaded to your media library will appear in search results."
 msgstr ""
 
-#: includes/classes/Feature/Documents/Documents.php:489
+#: includes/classes/Feature/Documents/Documents.php:458
 msgid "Description"
 msgstr ""
 
-#: includes/classes/Feature/Documents/Documents.php:490
+#: includes/classes/Feature/Documents/Documents.php:459
 msgid "Caption"
 msgstr ""
 
-#: includes/classes/Feature/Documents/Documents.php:495
+#: includes/classes/Feature/Documents/Documents.php:464
 msgid "Document Content"
 msgstr ""
 
@@ -770,51 +773,51 @@ msgstr ""
 msgid "https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#facets"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:143
+#: includes/classes/Feature/Facets/Facets.php:169
 #: includes/classes/Feature/InstantResults/InstantResults.php:167
 msgid "Match Type"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:145
+#: includes/classes/Feature/Facets/Facets.php:171
 #: includes/classes/Feature/InstantResults/InstantResults.php:171
 msgid "Show any content tagged to <strong>all</strong> selected terms"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:146
+#: includes/classes/Feature/Facets/Facets.php:172
 #: includes/classes/Feature/InstantResults/InstantResults.php:175
 msgid "Show all content tagged to <strong>any</strong> selected term"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:147
+#: includes/classes/Feature/Facets/Facets.php:173
 #: includes/classes/Feature/InstantResults/InstantResults.php:177
 msgid "\"All\" will only show content that matches all filters. \"Any\" will show content that matches any filter."
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:215
+#: includes/classes/Feature/Facets/Facets.php:241
 msgid "Facets no longer require admin styles."
 msgstr ""
 
 #. translators: Widgets Edit Screen URL
-#: includes/classes/Feature/Facets/Facets.php:508
+#: includes/classes/Feature/Facets/Facets.php:534
 msgid "Adds <a href='%s'>filter widgets</a> that administrators can add to the website's sidebars (widgetized areas), so that visitors can filter applicable content and search results by one or more taxonomy terms."
 msgstr ""
 
 #. translators: Site Editor URL
-#: includes/classes/Feature/Facets/Facets.php:516
+#: includes/classes/Feature/Facets/Facets.php:542
 msgid "Adds <a href='%s'>filter blocks</a> that administrators can add to the website's templates and template parts, so that visitors can filter applicable content and search results by one or more taxonomy terms."
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:671
+#: includes/classes/Feature/Facets/Facets.php:697
 #: includes/classes/Feature/InstantResults/InstantResults.php:1095
 msgid "Filter matching"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:674
+#: includes/classes/Feature/Facets/Facets.php:700
 #: includes/classes/Feature/InstantResults/InstantResults.php:1098
 msgid "Show results that match <strong>all</strong> selected filters"
 msgstr ""
 
-#: includes/classes/Feature/Facets/Facets.php:678
+#: includes/classes/Feature/Facets/Facets.php:704
 #: includes/classes/Feature/InstantResults/InstantResults.php:1102
 msgid "Show results that match <strong>any</strong> selected filter"
 msgstr ""
@@ -905,6 +908,8 @@ msgid "any"
 msgstr ""
 
 #: includes/classes/Feature/Facets/Types/Taxonomy/Widget.php:116
+#: assets/js/sync-ui/components/errors.js:27
+#: dist/js/sync-script.js:1
 msgid "Count"
 msgstr ""
 
@@ -964,13 +969,13 @@ msgid "ElasticPress.io plan"
 msgstr ""
 
 #: includes/classes/Feature/InstantResults/InstantResults.php:142
-#: includes/classes/Feature/Search/Search.php:648
+#: includes/classes/Feature/Search/Search.php:655
 msgid "Highlight tag "
 msgstr ""
 
 #: includes/classes/Feature/InstantResults/InstantResults.php:145
 #: includes/classes/Feature/InstantResults/InstantResults.php:1059
-#: includes/classes/Feature/Search/Search.php:894
+#: includes/classes/Feature/Search/Search.php:901
 msgid "None"
 msgstr ""
 
@@ -1016,12 +1021,12 @@ msgid "Price"
 msgstr ""
 
 #: includes/classes/Feature/InstantResults/InstantResults.php:1054
-#: includes/classes/Feature/Search/Search.php:889
+#: includes/classes/Feature/Search/Search.php:896
 msgid "Select the HTML tag used to highlight search terms."
 msgstr ""
 
 #: includes/classes/Feature/InstantResults/InstantResults.php:1056
-#: includes/classes/Feature/Search/Search.php:891
+#: includes/classes/Feature/Search/Search.php:898
 msgid "Highlight tag"
 msgstr ""
 
@@ -1096,7 +1101,7 @@ msgid "Instantly find the content you’re looking for. The first time."
 msgstr ""
 
 #: includes/classes/Feature/Search/Search.php:58
-#: includes/classes/Feature/Search/Search.php:572
+#: includes/classes/Feature/Search/Search.php:579
 msgid "Overcome higher-end performance and functional limits posed by the traditional WordPress structured (SQL) database to deliver superior keyword search, instantly. ElasticPress indexes custom fields, tags, and other metadata to improve search results. Fuzzy matching accounts for misspellings and verb tenses."
 msgstr ""
 
@@ -1104,197 +1109,211 @@ msgstr ""
 msgid "https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#post-search"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:623
-#: includes/classes/Feature/Search/Search.php:867
+#: includes/classes/Feature/Search/Search.php:630
+#: includes/classes/Feature/Search/Search.php:874
 msgid "Weight results by date"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:640
+#: includes/classes/Feature/Search/Search.php:647
 msgid "Highlighting status"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:661
+#: includes/classes/Feature/Search/Search.php:668
 msgid "Excerpt highlighting"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:665
+#: includes/classes/Feature/Search/Search.php:672
 msgid "By default, WordPress strips HTML from content excerpts. Enable when using the_excerpt() to display search results. "
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:671
-#: includes/classes/Feature/Search/Search.php:934
+#: includes/classes/Feature/Search/Search.php:678
+#: includes/classes/Feature/Search/Search.php:941
 msgid "Advanced fields and weighting settings"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:672
-#: includes/classes/Feature/Search/Search.php:936
+#: includes/classes/Feature/Search/Search.php:679
+#: includes/classes/Feature/Search/Search.php:943
 msgid "Add synonyms to your post searches"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:776
+#: includes/classes/Feature/Search/Search.php:783
 #: assets/js/search/editor/plugins/exclude-from-search.js:23
 #: dist/js/search-editor-script.js:1
 msgid "Exclude from search results"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:779
+#: includes/classes/Feature/Search/Search.php:786
 msgid "Excludes this media from the results of your site's search form while ElasticPress is active."
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:781
+#: includes/classes/Feature/Search/Search.php:788
 #: assets/js/search/editor/plugins/exclude-from-search.js:24
 #: dist/js/search-editor-script.js:1
 msgid "Excludes this post from the results of your site's search form while ElasticPress is active."
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:860
+#: includes/classes/Feature/Search/Search.php:867
 msgid "Weighting by date"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:863
+#: includes/classes/Feature/Search/Search.php:870
 msgid "Don't weight results by date"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:877
+#: includes/classes/Feature/Search/Search.php:884
 msgid "Highlight search terms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:882
+#: includes/classes/Feature/Search/Search.php:889
 msgid "By default, WordPress strips HTML from content excerpts. Enable when using <code>the_excerpt()</code> to display search results."
 msgstr ""
 
-#: includes/classes/Feature/Search/Search.php:884
+#: includes/classes/Feature/Search/Search.php:891
 msgid "Highlight search terms in excerpts"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:88
+#: includes/classes/Feature/Search/Synonyms.php:89
 msgid "This feature requires the \"Post Search\" feature to be enabled"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:172
+#: includes/classes/Feature/Search/Synonyms.php:182
 msgid "ElasticPress Synonyms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:173
+#: includes/classes/Feature/Search/Synonyms.php:183
 #: includes/classes/StatusReport/Features.php:91
+#: assets/js/synonyms/components/groups/synonyms.js:43
+#: dist/js/synonyms-script.js:1
 msgid "Synonyms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:219
+#: includes/classes/Feature/Search/Synonyms.php:229
 msgid "Successfully updated synonym filter."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:222
+#: includes/classes/Feature/Search/Synonyms.php:232
 msgid "There was an error storing your synonyms."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:225
+#: includes/classes/Feature/Search/Synonyms.php:235
 msgid "There was a problem updating the index with your synonyms. If you have not indexed your data, please run an index."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:228
+#: includes/classes/Feature/Search/Synonyms.php:238
 msgid "There was an error updating the synonym list."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:245
+#: includes/classes/Feature/Search/Synonyms.php:255
 msgid "Elasticsearch Synonyms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:639
-msgid "# Defined sets (equivalent synonyms)."
+#: includes/classes/Feature/Search/Synonyms.php:679
+#: assets/js/synonyms/utils.js:207
+#: dist/js/synonyms-script.js:1
+msgid "# Defined synonyms."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:642
-msgid "# Defined alternatives (explicit mappings)."
+#: includes/classes/Feature/Search/Synonyms.php:682
+#: assets/js/synonyms/utils.js:211
+#: dist/js/synonyms-script.js:1
+msgid "# Defined hyponyms."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:656
+#: includes/classes/Feature/Search/Synonyms.php:685
+#: assets/js/synonyms/utils.js:215
+#: dist/js/synonyms-script.js:1
+msgid "# Defined replacements."
+msgstr ""
+
+#: includes/classes/Feature/Search/Synonyms.php:704
+#: assets/js/synonyms/index.js:26
+#: dist/js/synonyms-script.js:1
 msgid "Manage Synonyms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:657
+#: includes/classes/Feature/Search/Synonyms.php:705
 msgid "Synonyms enable more flexible search results that show relevant results even without an exact match. Synonyms can be defined as a sets where all words are synonyms for each other, or as alternatives where searches for the primary word will also match the rest, but no vice versa."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:658
+#: includes/classes/Feature/Search/Synonyms.php:706
 msgid "Switch to Advanced Text Editor"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:659
+#: includes/classes/Feature/Search/Synonyms.php:707
 msgid "Switch to Visual Editor"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:661
+#: includes/classes/Feature/Search/Synonyms.php:709
 msgid "Sets"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:662
+#: includes/classes/Feature/Search/Synonyms.php:710
 msgid "Sets are terms that will all match each other for search results. This is useful where all words are considered equivalent, such as product renaming or regional variations like sneakers, tennis shoes, trainers, and runners."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:663
+#: includes/classes/Feature/Search/Synonyms.php:711
 msgid "Comma separated list of terms"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:664
+#: includes/classes/Feature/Search/Synonyms.php:712
 msgid "Add Set"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:665
+#: includes/classes/Feature/Search/Synonyms.php:713
 msgid "This set must contain at least 2 terms."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:667
+#: includes/classes/Feature/Search/Synonyms.php:715
 msgid "Alternatives"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:668
+#: includes/classes/Feature/Search/Synonyms.php:716
 msgid "Alternatives are terms that will also be matched when you search for the primary term. For instance, a search for shoes can also include results for sneaker, sandals, boots, and high heels."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:669
+#: includes/classes/Feature/Search/Synonyms.php:717
 msgid "Primary term"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:670
+#: includes/classes/Feature/Search/Synonyms.php:718
 msgid "Comma separated list of alternatives"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:671
+#: includes/classes/Feature/Search/Synonyms.php:719
 msgid "Add Alternative"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:672
+#: includes/classes/Feature/Search/Synonyms.php:720
 msgid "You must enter both a primary term and at least one alternative term."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:674
+#: includes/classes/Feature/Search/Synonyms.php:722
 msgid "Advanced Synonym Editor"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:675
+#: includes/classes/Feature/Search/Synonyms.php:723
 msgid "When you add Sets and Alternatives above, we reduce them to SolrSynonyms which Elasticsearch can understand. If you are an advanced user, you can edit synonyms directly using Solr synonym formatting. This is beneficial if you want to import a large dictionary of synonyms, or want to export this site's synonyms for use on another site."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:676
+#: includes/classes/Feature/Search/Synonyms.php:724
 msgid "SolrSynonym Text"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:677
+#: includes/classes/Feature/Search/Synonyms.php:725
 msgid "Alternatives must have both a primary term and at least one alternative term."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:678
+#: includes/classes/Feature/Search/Synonyms.php:726
 msgid "Sets must contain at least 2 terms."
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:680
-#: assets/js/weighting/components/field.js:71
+#: includes/classes/Feature/Search/Synonyms.php:728
+#: assets/js/weighting/components/field.js:80
 #: dist/js/weighting-script.js:1
 msgid "Remove"
 msgstr ""
 
-#: includes/classes/Feature/Search/Synonyms.php:681
+#: includes/classes/Feature/Search/Synonyms.php:729
 msgid "Update Synonyms"
 msgstr ""
 
@@ -1520,6 +1539,28 @@ msgstr ""
 msgid "This feature will empower your website to overcome traditional WordPress term search and query limitations that can present themselves at scale."
 msgstr ""
 
+#: includes/classes/Feature/WooCommerce/Orders.php:373
+msgid "Although the WooCommerce and Protected Content features are enabled, ElasticPress will not integrate with the WooCommerce Orders list if WooCommerce's High-performance order storage is enabled."
+msgstr ""
+
+#: includes/classes/Feature/WooCommerce/OrdersAutosuggest.php:638
+msgid "Show suggestions when searching for Orders"
+msgstr ""
+
+#. translators: 1: <a> tag (ElasticPress.io); 2. </a>; 3: <a> tag (KB article); 4. </a>;
+#: includes/classes/Feature/WooCommerce/OrdersAutosuggest.php:659
+msgid "You are directly connected to %1$sElasticPress.io%2$s! Enable autosuggest for Orders to enhance Dashboard results and quickly find WooCommerce Orders. %3$sLearn More%4$s."
+msgstr ""
+
+#: includes/classes/Feature/WooCommerce/OrdersAutosuggest.php:671
+msgid "Currently, autosuggest for orders is only available if WooCommerce order data storage is set in legacy or compatibility mode."
+msgstr ""
+
+#. translators: 1: <a> tag (ElasticPress.io); 2. </a>; 3: <a> tag (KB article); 4. </a>;
+#: includes/classes/Feature/WooCommerce/OrdersAutosuggest.php:675
+msgid "Due to the sensitive nature of orders, this autosuggest feature is available only to %1$sElasticPress.io%2$s customers. %3$sLearn More%4$s."
+msgstr ""
+
 #: includes/classes/Feature/WooCommerce/Products.php:326
 msgid "SKU"
 msgstr ""
@@ -1554,7 +1595,7 @@ msgid "WooCommerce"
 msgstr ""
 
 #: includes/classes/Feature/WooCommerce/WooCommerce.php:59
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:179
+#: includes/classes/Feature/WooCommerce/WooCommerce.php:171
 msgid "Most caching and performance tools can’t keep up with the nearly infinite ways your visitors might filter or navigate your products. No matter how many products, filters, or customers you have, ElasticPress will keep your online store performing quickly. If used in combination with the Protected Content feature, ElasticPress will also accelerate order searches and back end product management."
 msgstr ""
 
@@ -1562,32 +1603,12 @@ msgstr ""
 msgid "https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#woocommerce"
 msgstr ""
 
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:193
-msgid "Orders Autosuggest"
-msgstr ""
-
-#. translators: 1: <a> tag (ElasticPress.io); 2. </a>; 3: <a> tag (KB article); 4. </a>;
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:203
-msgid "You are directly connected to %1$sElasticPress.io%2$s! Enable Orders Autosuggest to enhance Dashboard results and quickly find WooCommerce Orders. %3$sLearn More%4$s."
-msgstr ""
-
-#. translators: 1: <a> tag (ElasticPress.io); 2. </a>; 3: <a> tag (KB article); 4. </a>;
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:205
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:343
-msgid "Due to the sensitive nature of orders, this autosuggest feature is available only to %1$sElasticPress.io%2$s customers. %3$sLearn More%4$s."
-msgstr ""
-
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:232
+#: includes/classes/Feature/WooCommerce/WooCommerce.php:186
 msgid "WooCommerce not installed."
 msgstr ""
 
-#. translators: 1: <a> tag (ElasticPress.io); 2. </a>; 3: <a> tag (KB article); 4. </a>;
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:341
-msgid "You are directly connected to %1$sElasticPress.io%2$s! Enable autosuggest for Orders to enhance Dashboard results and quickly find WooCommerce Orders. %3$sLearn More%4$s."
-msgstr ""
-
-#: includes/classes/Feature/WooCommerce/WooCommerce.php:359
-msgid "Show suggestions when searching for Orders"
+#: includes/classes/Feature/WooCommerce/WooCommerce.php:281
+msgid "Settings are now generated via the set_settings_schema() method."
 msgstr ""
 
 #: includes/classes/HealthCheck/HealthCheckElasticsearch.php:41
@@ -1633,7 +1654,7 @@ msgstr ""
 
 #: includes/classes/Indexable/Comment/QueryIntegration.php:140
 #: includes/classes/Indexable/Post/QueryIntegration.php:295
-#: includes/classes/Indexable/Term/QueryIntegration.php:109
+#: includes/classes/Indexable/Term/QueryIntegration.php:111
 msgid "sites is deprecated. Use site__in instead."
 msgstr ""
 
@@ -1742,12 +1763,12 @@ msgstr ""
 msgid "Index %s deleted"
 msgstr ""
 
-#: includes/classes/IndexHelper.php:1416
+#: includes/classes/IndexHelper.php:1417
 msgid "Mapping has failed, which will cause ElasticPress search results to be incorrect. Please click `Delete all Data and Start a Fresh Sync` to retry mapping."
 msgstr ""
 
 #. translators: Error message
-#: includes/classes/IndexHelper.php:1420
+#: includes/classes/IndexHelper.php:1422
 msgid "Index failed: %s"
 msgstr ""
 
@@ -1831,6 +1852,14 @@ msgstr ""
 #. translators: 1. Number of objects indexed, 2. Total number of objects, 3. Last object ID.
 #: includes/classes/REST/Sync.php:193
 msgid "Processed %1$d/%2$d. Last Object ID: %3$d"
+msgstr ""
+
+#: includes/classes/REST/Synonyms.php:51
+msgid "Synonyms editor mode."
+msgstr ""
+
+#: includes/classes/REST/Synonyms.php:55
+msgid "Synonyms in Solr format."
 msgstr ""
 
 #: includes/classes/Screen/HealthInfo.php:39
@@ -2188,47 +2217,49 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: includes/dashboard.php:625
+#: includes/dashboard.php:638
 msgid "ElasticPress Features"
 msgstr ""
 
-#: includes/dashboard.php:626
+#: includes/dashboard.php:639
 #: assets/js/features/index.js:34
 #: dist/js/features-script.js:1
 msgid "Features"
 msgstr ""
 
-#: includes/dashboard.php:634
+#: includes/dashboard.php:647
 msgid "ElasticPress Settings"
 msgstr ""
 
-#: includes/dashboard.php:643
-#: includes/dashboard.php:644
+#: includes/dashboard.php:656
+#: includes/dashboard.php:657
 #: assets/js/features/apps/features.js:82
+#: assets/js/synonyms/apps/synonyms-settings.js:61
 #: dist/js/features-script.js:1
+#: dist/js/synonyms-script.js:1
 msgid "Sync"
 msgstr ""
 
-#: includes/dashboard.php:652
+#: includes/dashboard.php:665
 msgid "ElasticPress Index Health"
 msgstr ""
 
-#: includes/dashboard.php:653
+#: includes/dashboard.php:666
 #: includes/partials/stats-page.php:35
 msgid "Index Health"
 msgstr ""
 
-#: includes/dashboard.php:661
+#: includes/dashboard.php:674
 msgid "ElasticPress Status Report"
 msgstr ""
 
-#: includes/dashboard.php:662
+#: includes/dashboard.php:675
 #: assets/js/status-report/index.js:21
 #: dist/js/status-report-script.js:1
 msgid "Status Report"
 msgstr ""
 
-#: includes/dashboard.php:860
+#: includes/dashboard.php:873
 msgid "ElasticPress Indexing"
 msgstr ""
 
@@ -2623,8 +2654,11 @@ msgid "Save and sync now"
 msgstr ""
 
 #: assets/js/features/apps/features.js:245
+#: assets/js/synonyms/apps/synonyms-settings.js:174
+#: assets/js/synonyms/components/common/edit-panel.js:95
 #: assets/js/weighting/apps/weighting.js:59
 #: dist/js/features-script.js:1
+#: dist/js/synonyms-script.js:1
 #: dist/js/weighting-script.js:1
 msgid "Save changes"
 msgstr ""
@@ -2681,7 +2715,7 @@ msgstr ""
 msgid "Select filters"
 msgstr ""
 
-#: assets/js/instant-results/apps/modal.js:89
+#: assets/js/instant-results/apps/modal.js:100
 #: dist/js/instant-results-script.js:1
 msgid "Search results"
 msgstr ""
@@ -2933,48 +2967,48 @@ msgstr ""
 msgid "Copy status report to clipboard"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:39
+#: assets/js/sync-ui/apps/sync.js:64
 #: dist/js/sync-script.js:1
 msgid "Sync completed."
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:51
+#: assets/js/sync-ui/apps/sync.js:82
 #: dist/js/sync-script.js:1
 msgid "Starting delete and sync…"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:70
+#: assets/js/sync-ui/apps/sync.js:101
 #: dist/js/sync-script.js:1
 msgid "Starting sync…"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:80
+#: assets/js/sync-ui/apps/sync.js:111
 #: dist/js/sync-script.js:1
 msgid "If you are missing data in your search results or have recently added custom content types to your site, you should run a sync to reflect these changes."
 msgstr ""
 
 #. translators: %s: Index type. ElasticPress.io or Elasticsearch.
-#: assets/js/sync-ui/apps/sync.js:86
+#: assets/js/sync-ui/apps/sync.js:117
 #: dist/js/sync-script.js:1
 msgid "Run a sync to index your existing content %s. Once syncing finishes, your site is officially supercharged."
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:91
+#: assets/js/sync-ui/apps/sync.js:122
 #: dist/js/sync-script.js:1
 msgid "on ElasticPress.io"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:92
+#: assets/js/sync-ui/apps/sync.js:123
 #: dist/js/sync-script.js:1
 msgid "in Elasticsearch"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:109
+#: assets/js/sync-ui/apps/sync.js:140
 #: dist/js/sync-script.js:1
 msgid "Advanced options"
 msgstr ""
 
-#: assets/js/sync-ui/apps/sync.js:114
+#: assets/js/sync-ui/apps/sync.js:145
 #: dist/js/sync-script.js:1
 msgid "Sync history"
 msgstr ""
@@ -3019,6 +3053,16 @@ msgstr ""
 msgid "Learn more about Sync"
 msgstr ""
 
+#: assets/js/sync-ui/components/errors.js:28
+#: dist/js/sync-script.js:1
+msgid "Error type"
+msgstr ""
+
+#: assets/js/sync-ui/components/errors.js:44
+#: dist/js/sync-script.js:1
+msgid "No errors found in the log."
+msgstr ""
+
 #: assets/js/sync-ui/components/include.js:52
 #: dist/js/sync-script.js:1
 msgid "Object IDs"
@@ -3049,28 +3093,28 @@ msgstr ""
 msgid "Higher object ID"
 msgstr ""
 
-#: assets/js/sync-ui/components/log.js:59
+#: assets/js/sync-ui/components/log.js:60
 #: dist/js/sync-script.js:1
 msgid "Copied log to clipboard."
 msgstr ""
 
 #: assets/js/sync-ui/components/log.js:71
 #: dist/js/sync-script.js:1
-msgid "Full Log"
+msgid "Log"
 msgstr ""
 
 #. translators: %d: Error message count.
-#: assets/js/sync-ui/components/log.js:78
+#: assets/js/sync-ui/components/log.js:77
 #: dist/js/sync-script.js:1
 msgid "Errors (%d)"
 msgstr ""
 
-#: assets/js/sync-ui/components/log.js:107
+#: assets/js/sync-ui/components/log.js:104
 #: dist/js/sync-script.js:1
 msgid "Clear log"
 msgstr ""
 
-#: assets/js/sync-ui/components/log.js:112
+#: assets/js/sync-ui/components/log.js:109
 #: dist/js/sync-script.js:1
 msgid "Copy log to clipboard"
 msgstr ""
@@ -3155,36 +3199,41 @@ msgstr ""
 
 #: assets/js/sync-ui/components/previous-sync.js:80
 #: dist/js/sync-script.js:1
-msgid "Manual sync from Sync Settings."
+msgid "Manual sync following an error in synonyms settings."
 msgstr ""
 
 #: assets/js/sync-ui/components/previous-sync.js:82
+#: dist/js/sync-script.js:1
+msgid "Manual sync from Sync Settings."
+msgstr ""
+
+#: assets/js/sync-ui/components/previous-sync.js:84
 #: dist/js/sync-script.js:1
 msgid "Automatic sync after plugin update."
 msgstr ""
 
 #. translators: %1$s Sync date and time. %2%s sync trigger.
-#: assets/js/sync-ui/components/previous-sync.js:113
+#: assets/js/sync-ui/components/previous-sync.js:115
 #: dist/js/sync-script.js:1
 msgctxt "Sync info"
 msgid "%1$s — %2$s"
 msgstr ""
 
 #: assets/js/sync-ui/components/progress.js:48
-#: assets/js/sync/index.js:199
+#: assets/js/sync/index.js:238
 #: dist/js/sync-script.js:1
 msgid "Sync failed"
 msgstr ""
 
 #: assets/js/sync-ui/components/progress.js:56
-#: assets/js/sync/index.js:341
-#: assets/js/sync/index.js:517
+#: assets/js/sync/index.js:384
+#: assets/js/sync/index.js:560
 #: dist/js/sync-script.js:1
 msgid "Sync paused"
 msgstr ""
 
 #: assets/js/sync-ui/components/progress.js:60
-#: assets/js/sync/index.js:514
+#: assets/js/sync/index.js:557
 #: dist/js/sync-script.js:1
 msgid "WP CLI sync in progress"
 msgstr ""
@@ -3221,11 +3270,17 @@ msgstr ""
 #. translators: %1$s Sync start date and time.
 #: assets/js/sync-ui/components/progress.js:97
 #: dist/js/sync-script.js:1
-msgid "Started automatically after updating the ElasticPress plugin at <time>%s</time>."
+msgid "Started manually from an error on the Synonyms Settings page at <time>%s</time>."
 msgstr ""
 
 #. translators: %1$s Sync start date and time.
 #: assets/js/sync-ui/components/progress.js:103
+#: dist/js/sync-script.js:1
+msgid "Started automatically after updating the ElasticPress plugin at <time>%s</time>."
+msgstr ""
+
+#. translators: %1$s Sync start date and time.
+#: assets/js/sync-ui/components/progress.js:109
 #: dist/js/sync-script.js:1
 msgid "Started on <time>%s</time>."
 msgstr ""
@@ -3251,12 +3306,12 @@ msgid "Sync Settings"
 msgstr ""
 
 #. translators: %s: Index type. ElasticPress.io or Elasticsearch.
-#: assets/js/sync/index.js:225
+#: assets/js/sync/index.js:264
 #: dist/js/sync-script.js:1
 msgid "Your indexing process has been stopped by WP-CLI and your %s index could be missing content. To restart indexing, please click the Start button or use WP-CLI commands to perform the reindex. Please note that search results could be incorrect or incomplete until the reindex finishes."
 msgstr ""
 
-#: assets/js/sync/index.js:233
+#: assets/js/sync/index.js:272
 #: dist/js/sync-script.js:1
 msgid "Sync interrupted by WP-CLI command."
 msgstr ""
@@ -3281,14 +3336,249 @@ msgstr ""
 msgid "Unable to parse response. Find troubleshooting steps at https://elasticpress.zendesk.com/hc/en-us/articles/20857557098125/."
 msgstr ""
 
+#: assets/js/synonyms/apps/synonyms-settings.js:48
+#: dist/js/synonyms-script.js:1
+msgid "Synonym settings saved."
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:53
+#: dist/js/synonyms-script.js:1
+msgid "Could not update index with synonyms. Make sure your data is synced."
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:69
+#: assets/js/weighting/apps/weighting.js:36
+#: dist/js/synonyms-script.js:1
+#: dist/js/weighting-script.js:1
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#. translators: Synonyms count
+#: assets/js/synonyms/apps/synonyms-settings.js:87
+#: dist/js/synonyms-script.js:1
+msgid "Synonyms (%d)"
+msgstr ""
+
+#. translators: Hyponyms count
+#: assets/js/synonyms/apps/synonyms-settings.js:98
+#: dist/js/synonyms-script.js:1
+msgid "Hyponyms (%d)"
+msgstr ""
+
+#. translators: Replacements count
+#: assets/js/synonyms/apps/synonyms-settings.js:109
+#: dist/js/synonyms-script.js:1
+msgid "Replacements (%d)"
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:121
+#: dist/js/synonyms-script.js:1
+msgid "Switch to visual editor"
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:122
+#: dist/js/synonyms-script.js:1
+msgid "Switch to advanced text editor"
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:126
+#: dist/js/synonyms-script.js:1
+msgid "Synonym rules enable a more flexible search experience that returns relevant results even without an exact match. Rules can be defined as synonyms, for terms with similar meanings; hyponyms, for terms with a hierarchical relationship; or replacements, for corrections and substitutions."
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:154
+#: dist/js/synonyms-script.js:1
+msgid "Advanced Synonyms Editor"
+msgstr ""
+
+#: assets/js/synonyms/apps/synonyms-settings.js:158
+#: dist/js/synonyms-script.js:1
+msgid "ElasticPress uses the Solr format to define your synonym rules for Elasticsearch. Advanced users can use the field below to edit the synonym rules in this format directly. This can also be used to import a large dictionary of synonyms, or to export your synonyms for use on another site."
+msgstr ""
+
+#: assets/js/synonyms/components/common/edit-panel.js:106
+#: dist/js/synonyms-script.js:1
+msgid "Cancel"
+msgstr ""
+
+#: assets/js/synonyms/components/common/list-table.js:148
+#: dist/js/synonyms-script.js:1
+msgid "Delete selected"
+msgstr ""
+
+#: assets/js/synonyms/components/common/row-actions.js:42
+#: dist/js/synonyms-script.js:1
+msgid "Edit"
+msgstr ""
+
+#: assets/js/synonyms/components/common/row-actions.js:50
+#: dist/js/synonyms-script.js:1
+msgid "Delete"
+msgstr ""
+
+#: assets/js/synonyms/components/editors/solr-editor.js:34
+#: dist/js/synonyms-script.js:1
+msgid "Solr synonyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:26
+#: dist/js/synonyms-script.js:1
+msgid "<p><strong>Hyponyms</strong> are terms with a more specific meaning than another more generic terms, called a <strong>hypernym</strong>. For example, <em>aqua</em>, <em>azure</em>, and <em>cerulean</em> are all hyponyms of <em>blue</em>, their hypernym.</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:32
+#: dist/js/synonyms-script.js:1
+msgid "<p>Use hyponyms when you want search queries for a parent term to return results relevant to itself or any of its child terms, but search queries for a child term to only return results that are relevant to that term. For example, when a search for \"blue\" should return anything blue, whether it be aqua, azure, or cerulean, but a search for \"cerulean\" should return only items that are specifically cerulean blue.</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:40
+#: dist/js/synonyms-script.js:1
+msgid "Add hyponyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:41
+#: dist/js/synonyms-script.js:1
+msgid "Edit Hyponyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:42
+#: dist/js/synonyms-script.js:1
+msgid "Add Hyponyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:43
+#: dist/js/synonyms-script.js:1
+msgid "Hypernym"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:44
+#: dist/js/synonyms-script.js:1
+msgid "Hyponyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:47
+#: dist/js/synonyms-script.js:1
+msgid "Added hyponyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:48
+#: dist/js/synonyms-script.js:1
+msgid "Deleted hyponyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:49
+#: dist/js/synonyms-script.js:1
+msgid "Hyponym sets require a hypernym and at least one hyponym that is not the hypernym."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/hyponyms.js:53
+#: dist/js/synonyms-script.js:1
+msgid "Updated hyponyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:26
+#: dist/js/synonyms-script.js:1
+msgid "<p><strong>Replacements</strong> are terms that replace other incorrect or obsolete terms.</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:32
+#: dist/js/synonyms-script.js:1
+msgid "<p>Use replacements when you want search queries for certain terms to return results that are only relevant to another term, or set of terms. This can be useful for supporting specific typos or incorrect phrasing. For example, when a search for the phrase \"intensive purposes\" should only return results including the phrase \"intents and purposes\".</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:40
+#: dist/js/synonyms-script.js:1
+msgid "You may need to <a>disable fuzziness</a> to have it working properly."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:58
+#: dist/js/synonyms-script.js:1
+msgid "Add replacements"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:59
+#: dist/js/synonyms-script.js:1
+msgid "Edit Replacements"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:60
+#: dist/js/synonyms-script.js:1
+msgid "Add Replacements"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:62
+#: dist/js/synonyms-script.js:1
+msgid "Replacements"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:65
+#: dist/js/synonyms-script.js:1
+msgid "Added replacements."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:66
+#: dist/js/synonyms-script.js:1
+msgid "Deleted replacements."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:67
+#: dist/js/synonyms-script.js:1
+msgid "Replacement sets require at least one term and one replacement."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/replacements.js:71
+#: dist/js/synonyms-script.js:1
+msgid "Updated replacements."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:26
+#: dist/js/synonyms-script.js:1
+msgid "<p><strong>Synonyms</strong> are terms with similar meanings. For example, <em>sneaker</em>, <em>tennis shoe</em>, <em>trainer</em>, and <em>running shoe</em> could all refer to a particular type of shoe.</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:32
+#: dist/js/synonyms-script.js:1
+msgid "<p>Use synonyms when you want queries for a specific term to also return results relevant to any of its synonyms. This can be useful for supporting products and services whose names have changed over time or regional variations in terminology. For example, when a search for \"sneaker\" should return sneakers, tennis shoes, trainers and running shoes.</p>"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:40
+#: dist/js/synonyms-script.js:1
+msgid "Add synonyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:41
+#: dist/js/synonyms-script.js:1
+msgid "Edit Synonyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:42
+#: dist/js/synonyms-script.js:1
+msgid "Add Synonyms"
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:46
+#: dist/js/synonyms-script.js:1
+msgid "Added synonyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:47
+#: dist/js/synonyms-script.js:1
+msgid "Deleted synonyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:48
+#: dist/js/synonyms-script.js:1
+msgid "Synonym sets require at least two synonyms."
+msgstr ""
+
+#: assets/js/synonyms/components/groups/synonyms.js:49
+#: dist/js/synonyms-script.js:1
+msgid "Updated synonyms."
+msgstr ""
+
 #: assets/js/weighting/apps/weighting.js:34
 #: dist/js/weighting-script.js:1
 msgid "Settings saved."
-msgstr ""
-
-#: assets/js/weighting/apps/weighting.js:36
-#: dist/js/weighting-script.js:1
-msgid "Something went wrong. Please try again."
 msgstr ""
 
 #: assets/js/weighting/apps/weighting.js:43
@@ -3301,12 +3591,12 @@ msgstr ""
 msgid "For example, adding more weight to the title attribute will cause search matches on the post title to appear more prominently."
 msgstr ""
 
-#: assets/js/weighting/components/field.js:52
+#: assets/js/weighting/components/field.js:61
 #: dist/js/weighting-script.js:1
 msgid "Searchable"
 msgstr ""
 
-#: assets/js/weighting/components/field.js:59
+#: assets/js/weighting/components/field.js:68
 #: dist/js/weighting-script.js:1
 msgid "Weight"
 msgstr ""
@@ -3317,22 +3607,22 @@ msgstr ""
 msgid "%s is already being synced."
 msgstr ""
 
-#: assets/js/weighting/components/group.js:177
+#: assets/js/weighting/components/group.js:178
 #: dist/js/weighting-script.js:1
 msgid "Make sure to Sync after adding new fields to ensure that the fields are synced for any existing content that uses them."
 msgstr ""
 
-#: assets/js/weighting/components/group.js:181
+#: assets/js/weighting/components/group.js:182
 #: dist/js/weighting-script.js:1
 msgid "Add field"
 msgstr ""
 
-#: assets/js/weighting/components/group.js:184
+#: assets/js/weighting/components/group.js:185
 #: dist/js/weighting-script.js:1
 msgid "Metadata key"
 msgstr ""
 
-#: assets/js/weighting/components/group.js:188
+#: assets/js/weighting/components/group.js:189
 #: dist/js/weighting-script.js:1
 msgid "Add"
 msgstr ""

@@ -82,7 +82,10 @@ export default () => {
 			name: 'synonyms',
 			title: (
 				<GroupTab isValid={!synonyms.some((s) => !s.valid)}>
-					{sprintf(__('Synonyms (%d)', 'elasticpress'), synonyms.length)}
+					{
+						/* translators: Synonyms count */
+						sprintf(__('Synonyms (%d)', 'elasticpress'), synonyms.length)
+					}
 				</GroupTab>
 			),
 		},
@@ -90,7 +93,10 @@ export default () => {
 			name: 'hyponyms',
 			title: (
 				<GroupTab isValid={!hyponyms.some((s) => !s.valid)}>
-					{sprintf(__('Hyponyms (%d)', 'elasticpress'), hyponyms.length)}
+					{
+						/* translators: Hyponyms count */
+						sprintf(__('Hyponyms (%d)', 'elasticpress'), hyponyms.length)
+					}
 				</GroupTab>
 			),
 		},
@@ -98,7 +104,10 @@ export default () => {
 			name: 'replacements',
 			title: (
 				<GroupTab isValid={!replacements.some((s) => !s.valid)}>
-					{sprintf(__('Replacements (%d)', 'elasticpress'), replacements.length)}
+					{
+						/* translators: Replacements count */
+						sprintf(__('Replacements (%d)', 'elasticpress'), replacements.length)
+					}
 				</GroupTab>
 			),
 		},
