@@ -46,7 +46,7 @@ export default () => {
 							// eslint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label
 							<a
 								target="_blank"
-								href="https://elasticpress.zendesk.com/hc/en-us/articles/25809934420109-How-to-disable-fuzziness"
+								href="https://www.elasticpress.io/documentation/article/how-to-disable-fuzziness/"
 								rel="noreferrer"
 							/>
 						),

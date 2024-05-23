@@ -7,7 +7,7 @@
  * while syncing via dashboard, relying on the index_meta to pick it up where it stopped.
  *
  * @since 4.0.0
- * @see https://elasticpress.zendesk.com/hc/en-us/articles/16672117103501-Sync-Process
+ * @see https://www.elasticpress.io/documentation/article/sync-process/
  * @package elasticpress
  */
 

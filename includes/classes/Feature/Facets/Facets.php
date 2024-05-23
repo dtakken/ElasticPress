@@ -54,7 +54,7 @@ class Facets extends Feature {
 				)
 			. '</p>';
 
-		$this->docs_url = __( 'https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#facets', 'elasticpress' );
+		$this->docs_url = __( 'https://www.elasticpress.io/documentation/article/configuring-elasticpress-via-the-plugin-dashboard/#filters', 'elasticpress' );
 
 		$this->requires_install_reindex = false;
 
