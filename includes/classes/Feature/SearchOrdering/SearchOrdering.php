@@ -56,7 +56,7 @@ class SearchOrdering extends Feature {
 
 		$this->summary = '<p>' . __( 'Selected posts will be inserted into search results in the specified position.', 'elasticpress' ) . '</p>';
 
-		$this->docs_url = __( 'https://elasticpress.zendesk.com/hc/en-us/articles/360050447492-Configuring-ElasticPress-via-the-Plugin-Dashboard#custom-search-results', 'elasticpress' );
+		$this->docs_url = __( 'https://www.elasticpress.io/documentation/article/configuring-elasticpress-via-the-plugin-dashboard/#custom-search-results', 'elasticpress' );
 
 		$this->requires_install_reindex = false;
 

@@ -43,7 +43,7 @@ If circumstances prevent the use of a SaaS solution like ElasticPress.io, we can
 
 = Where can I find ElasticPress documentation and user guides? =
 
-Please refer to [GitHub](https://github.com/10up/ElasticPress) for detailed usage instructions and documentation. FAQs and tutorials can be also found on our [support site](https://elasticpress.zendesk.com/hc/en-us).
+Please refer to [GitHub](https://github.com/10up/ElasticPress) for detailed usage instructions and documentation. FAQs and tutorials can be also found on our [support site](https://www.elasticpress.io/documentation/).
 
 = I have a problem with the plugin. Where can I get help? =
 
