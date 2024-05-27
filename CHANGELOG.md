@@ -13,6 +13,14 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Security
 -->
 
+## [5.1.1] - 2024-05-27
+
+### Changed
+* Update Support Article URLs. Props [@felipeelia](https://github.com/felipeelia) via [#3919](https://github.com/10up/ElasticPress/pull/3919).
+
+### Fixed
+* Status report page when indexable post types is an empty array. Props [@furai](https://github.com/furai) via [#3910](https://github.com/10up/ElasticPress/pull/3910).
+
 ## [5.1.0] - 2024-04-29
 
 ### Added
@@ -2107,6 +2115,7 @@ This is a bug fix release with some filter additions.
 - Initial plugin release
 
 [Unreleased]: https://github.com/10up/ElasticPress/compare/trunk...develop
+[5.1.1]: https://github.com/10up/ElasticPress/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/10up/ElasticPress/compare/5.0.2...5.1.0
 [5.0.2]: https://github.com/10up/ElasticPress/compare/5.0.1...5.0.2
 [5.0.1]: https://github.com/10up/ElasticPress/compare/5.0.0...5.0.1
