@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Security
 -->
 
-## [5.1.1] - 2024-05-XX
+## [5.1.1] - 2024-05-27
 
 ### Changed
 * Update Support Article URLs. Props [@felipeelia](https://github.com/felipeelia) via [#3919](https://github.com/10up/ElasticPress/pull/3919).
