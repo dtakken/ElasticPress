@@ -531,9 +531,7 @@ function action_admin_enqueue_dashboard_scripts() {
 
 		wp_set_script_translations( 'ep_dashboard_scripts', 'elasticpress' );
 
-		$sync_url = ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) ?
-				network_admin_url( 'admin.php?page=elasticpress-sync&do_sync' ) :
-				admin_url( 'admin.php?page=elasticpress-sync&do_sync' );
+		$sync_url = Utils\get_sync_url( true );
 
 		$skip_url = ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) ?
 				network_admin_url( 'admin.php?page=elasticpress' ) :
