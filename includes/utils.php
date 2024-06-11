@@ -767,13 +767,17 @@ function get_asset_info( $slug, $attribute = null ) {
  * Return the Sync Page URL.
  *
  * @since 4.4.0
- * @param boolean $do_sync Whether the link should or should not start a resync.
+ * @param boolean|string $do_sync Whether the link should or should not start a resync. Pass a string to store the reason of the resync.
  * @return string
  */
-function get_sync_url( bool $do_sync = false ) : string {
+function get_sync_url( $do_sync = false ) : string {
 	$page = 'admin.php?page=elasticpress-sync';
 	if ( $do_sync ) {
-		$page .= '&do_sync&ep_sync_nonce=' . wp_create_nonce( 'ep_sync_nonce' );
+		$page .= '&do_sync';
+		if ( is_string( $do_sync ) ) {
+			$page .= '=' . rawurlencode( $do_sync );
+		}
+		$page .= '&ep_sync_nonce=' . wp_create_nonce( 'ep_sync_nonce' );
 	}
 	return ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) ?
 		network_admin_url( $page ) :
