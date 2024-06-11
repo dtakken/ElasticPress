@@ -2,7 +2,7 @@
 Contributors: 10up, tlovett1, vhauri, tott, felipeelia, oscarssanchez, cmmarslender
 Tags:         performance, search, elasticsearch, fuzzy, related posts
 Tested up to: 6.5
-Stable tag:   5.1.2
+Stable tag:   5.1.3
 License:      GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,12 @@ For sure! Feel free to submit ideas or feedback in general to our [GitHub repo](
 5. Instant Results modal
 
 == Changelog ==
+
+= 5.1.3 - 2024-06-11 =
+
+__Fixed:__
+
+* Missing nonces on some sync trigger URLs, making them require a manual interaction from the user. Props [@felipeelia](https://github.com/felipeelia).
 
 = 5.1.2 - 2024-06-11 =
 
