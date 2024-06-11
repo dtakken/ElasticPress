@@ -13,6 +13,14 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Security
 -->
 
+## [5.1.2] - 2024-06-11
+
+**This is a security release affecting all previous versions of ElasticPress.**
+
+### Security
+* Missing nonce verification for the sync triggered during activation of some features. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda) via [#3929](https://github.com/10up/ElasticPress/pull/3929).
+* Missing nonce verification for retrying the EP connection and fixed PHPCS linting rules. Props [@felipeelia](https://github.com/felipeelia) via [#3932](https://github.com/10up/ElasticPress/pull/3932).
+
 ## [5.1.1] - 2024-05-27
 
 ### Changed
@@ -2115,6 +2123,7 @@ This is a bug fix release with some filter additions.
 - Initial plugin release
 
 [Unreleased]: https://github.com/10up/ElasticPress/compare/trunk...develop
+[5.1.2]: https://github.com/10up/ElasticPress/compare/5.1.1...5.1.2
 [5.1.1]: https://github.com/10up/ElasticPress/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/10up/ElasticPress/compare/5.0.2...5.1.0
 [5.0.2]: https://github.com/10up/ElasticPress/compare/5.0.1...5.0.2

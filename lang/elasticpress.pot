@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: ElasticPress 5.1.1\n"
+"Project-Id-Version: ElasticPress 5.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/elasticpress\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-24T15:51:06+00:00\n"
+"POT-Creation-Date: 2024-06-11T12:43:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: elasticpress\n"
@@ -41,99 +41,99 @@ msgstr ""
 msgid "ElasticPress requires PHP version %s or later. Please upgrade PHP or disable the plugin."
 msgstr ""
 
-#: includes/classes/AdminNotices.php:126
+#: includes/classes/AdminNotices.php:120
 msgid "Autosuggest feature is enabled. If documents feature is enabled, your media will also become searchable in the frontend."
 msgstr ""
 
 #. translators: Feature name
-#: includes/classes/AdminNotices.php:195
+#: includes/classes/AdminNotices.php:189
 msgid "Dashboard sync is disabled. The ElasticPress %s feature has been auto-activated! You will need to reindex using WP-CLI for it to work."
 msgstr ""
 
 #. translators: 1. Feature name; 2: Sync page URL
-#: includes/classes/AdminNotices.php:201
+#: includes/classes/AdminNotices.php:195
 msgid "The ElasticPress %1$s feature has been auto-activated! You will need to <a href=\"%2$s\">run a sync</a> for it to work."
 msgstr ""
 
-#: includes/classes/AdminNotices.php:266
+#: includes/classes/AdminNotices.php:260
 msgid "Dashboard sync is disabled. The new version of ElasticPress requires that you delete all data and start a fresh sync using WP-CLI."
 msgstr ""
 
 #. translators: Sync Page URL
-#: includes/classes/AdminNotices.php:270
+#: includes/classes/AdminNotices.php:264
 msgid "The new version of ElasticPress requires that you <a href=\"%s\">delete all data and start a fresh sync</a>."
 msgstr ""
 
-#: includes/classes/AdminNotices.php:275
+#: includes/classes/AdminNotices.php:269
 msgid "Please note that some ElasticPress functionality may be impaired and/or content may not be searchable until the full sync has been performed."
 msgstr ""
 
-#: includes/classes/AdminNotices.php:330
+#: includes/classes/AdminNotices.php:324
 msgid "Dashboard sync is disabled, but ElasticPress is almost ready to go. Trigger a sync from WP-CLI."
 msgstr ""
 
 #. translators: Sync Page URL
-#: includes/classes/AdminNotices.php:334
+#: includes/classes/AdminNotices.php:328
 msgid "ElasticPress is almost ready to go. You just need to <a href=\"%s\">sync your content</a>."
 msgstr ""
 
 #. translators: Sync Page URL
-#: includes/classes/AdminNotices.php:386
+#: includes/classes/AdminNotices.php:380
 msgid "ElasticPress is almost ready to go. You just need to <a href=\"%s\">enter your settings</a>."
 msgstr ""
 
 #. translators: 1. Current Elasticsearch version; 2. Minimum required ES version
-#: includes/classes/AdminNotices.php:443
+#: includes/classes/AdminNotices.php:437
 msgid "Your Elasticsearch version %1$s is below the minimum required Elasticsearch version %2$s. ElasticPress may or may not work properly."
 msgstr ""
 
 #. translators: 1. Current Elasticsearch version; 2. Maximum supported ES version
-#: includes/classes/AdminNotices.php:495
+#: includes/classes/AdminNotices.php:489
 msgid "Your Elasticsearch version %1$s is above the maximum required Elasticsearch version %2$s. ElasticPress may or may not work properly."
 msgstr ""
 
 #. translators: Document page URL
-#: includes/classes/AdminNotices.php:539
+#: includes/classes/AdminNotices.php:533
 msgid "Your server software is not supported. To learn more about server compatibility please <a href=\"%s\">visit our documentation</a>."
 msgstr ""
 
 #. translators: 1. Current URL with retry parameter; 2. Settings Page URL
-#: includes/classes/AdminNotices.php:600
+#: includes/classes/AdminNotices.php:601
 msgid "There is a problem with connecting to your Elasticsearch host. ElasticPress can <a href=\"%1$s\">try your host again</a>, or you may need to <a href=\"%2$s\">change your settings</a>."
 msgstr ""
 
 #. translators: Response Code Number
-#: includes/classes/AdminNotices.php:608
+#: includes/classes/AdminNotices.php:609
 msgid "Response Code: %s"
 msgstr ""
 
 #. translators: Response Code Message
-#: includes/classes/AdminNotices.php:613
+#: includes/classes/AdminNotices.php:614
 msgid "Response error: %s"
 msgstr ""
 
 #. translators: 1. <em>; 2. </em>
-#: includes/classes/AdminNotices.php:675
+#: includes/classes/AdminNotices.php:676
 msgid "It seems the mapping data in your index does not match the Elasticsearch version used. We recommend to reindex your content using the sync button on the top of the screen or through wp-cli by adding the %1$s--setup%2$s flag"
 msgstr ""
 
 #. translators: 1. Current mapping file; 2. Mapping file that should be used
-#: includes/classes/AdminNotices.php:682
+#: includes/classes/AdminNotices.php:683
 msgid "Current mapping: %1$s. Expected mapping: %2$s"
 msgstr ""
 
 #. translators: Index Health URL
-#: includes/classes/AdminNotices.php:740
+#: includes/classes/AdminNotices.php:741
 msgid "It looks like one or more of your indices are running on a single node. While this won't prevent you from using ElasticPress, depending on your site's specific needs this can represent a performance issue. Please check the <a href=\"%s\">Index Health</a> page where you can check the health of all of your indices."
 msgstr ""
 
 #. translators: Elasticsearch or ElasticPress.io; 2. Link to article; 3. Link to article
-#: includes/classes/AdminNotices.php:796
+#: includes/classes/AdminNotices.php:797
 msgid "Your website content has more public custom fields than %1$s is able to store. Check our articles about <a href=\"%2$s\">Elasticsearch field limitations</a> and <a href=\"%3$s\">how to index just the custom fields you need</a> before trying to sync."
 msgstr ""
 
-#: includes/classes/AdminNotices.php:797
-#: includes/classes/AdminNotices.php:813
+#: includes/classes/AdminNotices.php:798
+#: includes/classes/AdminNotices.php:814
 #: includes/classes/ElasticsearchErrorInterpreter.php:93
 #: includes/classes/StatusReport/ElasticPressIo.php:30
 #: assets/js/sync/index.js:269
@@ -141,8 +141,8 @@ msgstr ""
 msgid "ElasticPress.io"
 msgstr ""
 
-#: includes/classes/AdminNotices.php:797
-#: includes/classes/AdminNotices.php:813
+#: includes/classes/AdminNotices.php:798
+#: includes/classes/AdminNotices.php:814
 #: includes/classes/ElasticsearchErrorInterpreter.php:93
 #: assets/js/sync/index.js:270
 #: dist/js/sync-script.js:1
@@ -150,7 +150,7 @@ msgid "Elasticsearch"
 msgstr ""
 
 #. translators: Elasticsearch or ElasticPress.io; 2. Link to article; 3. Link to article
-#: includes/classes/AdminNotices.php:812
+#: includes/classes/AdminNotices.php:813
 msgid "Your website content seems to have more public custom fields than %1$s is able to store. Check our articles about <a href=\"%2$s\">Elasticsearch field limitations</a> and <a href=\"%3$s\">how to index just the custom fields you need</a> if you receive any errors while syncing."
 msgstr ""
 
@@ -489,7 +489,7 @@ msgstr ""
 
 #: includes/classes/Feature.php:392
 #: includes/classes/StatusReport/ElasticPress.php:79
-#: includes/dashboard.php:648
+#: includes/dashboard.php:650
 #: includes/partials/settings-page.php:34
 #: assets/js/blocks/facets/common/edit.js:87
 #: assets/js/blocks/facets/date/edit.js:23
@@ -2213,53 +2213,53 @@ msgstr ""
 msgid "Feature registration API"
 msgstr ""
 
-#: includes/dashboard.php:284
+#: includes/dashboard.php:288
 msgid "Dashboard"
 msgstr ""
 
-#: includes/dashboard.php:638
+#: includes/dashboard.php:640
 msgid "ElasticPress Features"
 msgstr ""
 
-#: includes/dashboard.php:639
+#: includes/dashboard.php:641
 #: assets/js/features/index.js:34
 #: dist/js/features-script.js:1
 msgid "Features"
 msgstr ""
 
-#: includes/dashboard.php:647
+#: includes/dashboard.php:649
 msgid "ElasticPress Settings"
 msgstr ""
 
-#: includes/dashboard.php:656
-#: includes/dashboard.php:657
-#: assets/js/features/apps/features.js:82
+#: includes/dashboard.php:658
+#: includes/dashboard.php:659
+#: assets/js/features/apps/features.js:83
 #: assets/js/synonyms/apps/synonyms-settings.js:61
 #: dist/js/features-script.js:1
 #: dist/js/synonyms-script.js:1
 msgid "Sync"
 msgstr ""
 
-#: includes/dashboard.php:665
+#: includes/dashboard.php:667
 msgid "ElasticPress Index Health"
 msgstr ""
 
-#: includes/dashboard.php:666
+#: includes/dashboard.php:668
 #: includes/partials/stats-page.php:35
 msgid "Index Health"
 msgstr ""
 
-#: includes/dashboard.php:674
+#: includes/dashboard.php:676
 msgid "ElasticPress Status Report"
 msgstr ""
 
-#: includes/dashboard.php:675
+#: includes/dashboard.php:677
 #: assets/js/status-report/index.js:21
 #: dist/js/status-report-script.js:1
 msgid "Status Report"
 msgstr ""
 
-#: includes/dashboard.php:873
+#: includes/dashboard.php:875
 msgid "ElasticPress Indexing"
 msgstr ""
 
@@ -2603,57 +2603,57 @@ msgstr ""
 msgid "It looks like you’re trying to use ElasticPress’s advanced features only. If you’d like to activate basic search, please select Cancel and activate the Post Search Feature. Otherwise, please click Ok to configure advanced features."
 msgstr ""
 
-#: assets/js/features/apps/features.js:54
+#: assets/js/features/apps/features.js:55
 #: dist/js/features-script.js:1
 msgid "Could not save feature settings. Please try again."
 msgstr ""
 
-#: assets/js/features/apps/features.js:62
+#: assets/js/features/apps/features.js:63
 #: dist/js/features-script.js:1
 msgid "View sync status"
 msgstr ""
 
-#: assets/js/features/apps/features.js:69
+#: assets/js/features/apps/features.js:70
 #: dist/js/features-script.js:1
 msgid "Cannot save settings while a sync is in progress."
 msgstr ""
 
-#: assets/js/features/apps/features.js:74
+#: assets/js/features/apps/features.js:75
 #: dist/js/features-script.js:1
 msgid "Changes to feature settings discarded."
 msgstr ""
 
-#: assets/js/features/apps/features.js:89
+#: assets/js/features/apps/features.js:90
 #: dist/js/features-script.js:1
 msgid "If you choose to sync later some settings changes may not take effect until the sync is performed. Save and sync later?"
 msgstr ""
 
-#: assets/js/features/apps/features.js:97
+#: assets/js/features/apps/features.js:98
 #: dist/js/features-script.js:1
 msgid "Saving these settings will begin re-syncing your content. Save and sync now?"
 msgstr ""
 
-#: assets/js/features/apps/features.js:105
+#: assets/js/features/apps/features.js:106
 #: dist/js/features-script.js:1
 msgid "Feature settings saved. Starting sync…"
 msgstr ""
 
-#: assets/js/features/apps/features.js:110
+#: assets/js/features/apps/features.js:111
 #: dist/js/features-script.js:1
 msgid "Feature settings saved."
 msgstr ""
 
-#: assets/js/features/apps/features.js:142
+#: assets/js/features/apps/features.js:143
 #: dist/js/features-script.js:1
 msgid "ElasticPress: Could not save feature settings."
 msgstr ""
 
-#: assets/js/features/apps/features.js:244
+#: assets/js/features/apps/features.js:245
 #: dist/js/features-script.js:1
 msgid "Save and sync now"
 msgstr ""
 
-#: assets/js/features/apps/features.js:245
+#: assets/js/features/apps/features.js:246
 #: assets/js/synonyms/apps/synonyms-settings.js:174
 #: assets/js/synonyms/components/common/edit-panel.js:95
 #: assets/js/weighting/apps/weighting.js:59
@@ -2663,12 +2663,12 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: assets/js/features/apps/features.js:257
+#: assets/js/features/apps/features.js:258
 #: dist/js/features-script.js:1
 msgid "Save and sync later"
 msgstr ""
 
-#: assets/js/features/apps/features.js:264
+#: assets/js/features/apps/features.js:265
 #: dist/js/features-script.js:1
 msgid "Discard changes"
 msgstr ""
