@@ -300,7 +300,7 @@ class SyncManager extends \ElasticPress\SyncManager {
 		Indexables::factory()->get( $this->indexable_slug )->delete( $post_id, false );
 
 		/**
-		 * Make sure to remove this post from the sync queue in case an shutdown happens
+		 * Make sure to remove this post from the sync queue in case a shutdown happens
 		 * before a redirect when a redirect has already been triggered.
 		 */
 		$this->remove_from_queue( $post_id );
