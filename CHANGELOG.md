@@ -13,6 +13,11 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Security
 -->
 
+## [5.1.3] - 2024-06-11
+
+### Fixed
+* Missing nonces on some sync trigger URLs, making them require a manual interaction from the user. Props [@felipeelia](https://github.com/felipeelia) via [#3933](https://github.com/10up/ElasticPress/pull/3933).
+
 ## [5.1.2] - 2024-06-11
 
 **This is a security release affecting all previous versions of ElasticPress.**
@@ -2123,6 +2128,7 @@ This is a bug fix release with some filter additions.
 - Initial plugin release
 
 [Unreleased]: https://github.com/10up/ElasticPress/compare/trunk...develop
+[5.1.3]: https://github.com/10up/ElasticPress/compare/5.1.2...5.1.3
 [5.1.2]: https://github.com/10up/ElasticPress/compare/5.1.1...5.1.2
 [5.1.1]: https://github.com/10up/ElasticPress/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/10up/ElasticPress/compare/5.0.2...5.1.0

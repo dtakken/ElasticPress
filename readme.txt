@@ -79,6 +79,12 @@ For sure! Feel free to submit ideas or feedback in general to our [GitHub repo](
 
 == Changelog ==
 
+= 5.1.3 - 2024-06-11 =
+
+__Fixed:__
+
+* Missing nonces on some sync trigger URLs, making them require a manual interaction from the user. Props [@felipeelia](https://github.com/felipeelia).
+
 = 5.1.2 - 2024-06-11 =
 
 **This is a security release affecting all previous versions of ElasticPress.**
