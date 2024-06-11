@@ -187,7 +187,7 @@ function maybe_skip_install() {
 		return;
 	}
 
-	if ( empty( $_GET['ep-skip-install'] ) || empty( $_GET['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_GET['nonce'] ), 'ep-skip-install' ) || ! in_array( Screen::factory()->get_current_screen(), [ 'install' ], true ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+	if ( empty( $_GET['ep-skip-install'] ) || empty( $_GET['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_GET['nonce'] ), 'ep-skip-install' ) || ! in_array( Screen::factory()->get_current_screen(), [ 'install' ], true ) ) {
 		return;
 	}
 
@@ -221,7 +221,11 @@ function maybe_clear_es_info_cache() {
 		return;
 	}
 
-	if ( empty( $_GET['ep-retry'] ) && ! in_array( Screen::factory()->get_current_screen(), [ 'dashboard', 'settings', 'install' ], true ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+	$isset_retry = ! empty( $_GET['ep-retry'] ) &&
+		! empty( $_GET['ep_retry_nonce'] ) &&
+		wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['ep_retry_nonce'] ) ), 'ep_retry_nonce' );
+
+	if ( ! $isset_retry && ! in_array( Screen::factory()->get_current_screen(), [ 'dashboard', 'settings', 'install' ], true ) ) {
 		return;
 	}
 
@@ -231,8 +235,8 @@ function maybe_clear_es_info_cache() {
 		delete_transient( 'ep_es_info' );
 	}
 
-	if ( ! empty( $_GET['ep-retry'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		wp_safe_redirect( remove_query_arg( 'ep-retry' ) );
+	if ( $isset_retry ) {
+		wp_safe_redirect( remove_query_arg( [ 'ep-retry', 'ep_retry_nonce' ] ) );
 		exit();
 	}
 }
