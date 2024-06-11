@@ -533,6 +533,7 @@ class SyncManager extends \ElasticPress\SyncManager {
 		}
 
 		if ( ! $this->should_reindex_post( $post_id, $taxonomy ) ) {
+			$this->remove_from_queue( $post_id );
 			return;
 		}
 
@@ -629,6 +630,7 @@ class SyncManager extends \ElasticPress\SyncManager {
 		// Add all of them to the queue
 		foreach ( $object_ids as $post_id ) {
 			if ( ! $this->should_reindex_post( $post_id, $taxonomy ) ) {
+				$this->remove_from_queue( $post_id );
 				continue;
 			}
 
@@ -693,6 +695,7 @@ class SyncManager extends \ElasticPress\SyncManager {
 		}
 
 		if ( ! $this->should_reindex_post( $post_id, $taxonomy ) ) {
+			$this->remove_from_queue( $post_id );
 			return;
 		}
 

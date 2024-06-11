@@ -176,6 +176,26 @@ Cypress.Commands.add('publishPost', (postData, viewPost) => {
 	cy.wait(2000);
 });
 
+Cypress.Commands.add('postSetPassword', (id, password) => {
+	cy.visitAdminPage(`post.php?post=${id}&action=edit`);
+	cy.get('h1.editor-post-title__input').click();
+	cy.get('body').then(($body) => {
+		const $button = $body.find('.edit-post-post-visibility__toggle');
+		if (!$button.is(':visible')) {
+			cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
+		}
+	});
+	cy.get('.edit-post-post-visibility__toggle').click();
+	cy.get('.editor-post-visibility__dialog-radio, .editor-post-visibility__radio').check(
+		'password',
+	);
+	cy.get(
+		'.editor-post-visibility__dialog-password-input, .editor-post-visibility__password-input',
+	).type(password);
+
+	cy.get('.editor-post-publish-button').click();
+});
+
 Cypress.Commands.add('updateFeatures', (featureName, newValues) => {
 	const escapedNewValues = JSON.stringify(newValues);
 
