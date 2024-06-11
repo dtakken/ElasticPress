@@ -589,10 +589,17 @@ class AdminNotices {
 			$response_error = get_transient( 'ep_es_info_response_error' );
 		}
 
+		$retry_url = add_query_arg(
+			[
+				'ep-retry'       => 1,
+				'ep_retry_nonce' => wp_create_nonce( 'ep_retry_nonce' ),
+			]
+		);
+
 		$html = sprintf(
 			/* translators: 1. Current URL with retry parameter; 2. Settings Page URL */
 			__( 'There is a problem with connecting to your Elasticsearch host. ElasticPress can <a href="%1$s">try your host again</a>, or you may need to <a href="%2$s">change your settings</a>.', 'elasticpress' ),
-			esc_url( add_query_arg( 'ep-retry', 1 ) ),
+			esc_url( $retry_url ),
 			esc_url( $url )
 		);
 
