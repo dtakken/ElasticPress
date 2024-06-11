@@ -131,6 +131,10 @@ abstract class SyncManager {
 			return false;
 		}
 
+		if ( ! isset( $this->sync_queue[ $object_id ] ) ) {
+			return false;
+		}
+
 		$current_blog_id = get_current_blog_id();
 		if ( ! isset( $this->sync_queue[ $current_blog_id ] ) ) {
 			$this->sync_queue[ $current_blog_id ] = [];
