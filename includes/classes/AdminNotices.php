@@ -175,11 +175,7 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) {
-			$url = admin_url( 'network/admin.php?page=elasticpress-sync&do_sync=features' );
-		} else {
-			$url = admin_url( 'admin.php?page=elasticpress-sync&do_sync=features' );
-		}
+		$url = Utils\get_sync_url( 'features' );
 
 		$feature = Features::factory()->get_registered_feature( $auto_activate_sync );
 
@@ -250,11 +246,7 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) {
-			$url = admin_url( 'network/admin.php?page=elasticpress-sync&do_sync=upgrade' );
-		} else {
-			$url = admin_url( 'admin.php?page=elasticpress-sync&do_sync=upgrade' );
-		}
+		$url = Utils\get_sync_url( 'upgrade' );
 
 		if ( defined( 'EP_DASHBOARD_SYNC' ) && ! EP_DASHBOARD_SYNC ) {
 			$html = esc_html__( 'Dashboard sync is disabled. The new version of ElasticPress requires that you delete all data and start a fresh sync using WP-CLI.', 'elasticpress' );
