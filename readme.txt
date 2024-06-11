@@ -79,6 +79,15 @@ For sure! Feel free to submit ideas or feedback in general to our [GitHub repo](
 
 == Changelog ==
 
+= 5.1.2 - 2024-06-11 =
+
+**This is a security release affecting all previous versions of ElasticPress.**
+
+__Security:__
+
+* Nonce verification for the sync triggered by some features activation. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda).
+
+
 = 5.1.1 - 2024-05-27 =
 
 __Changed:__

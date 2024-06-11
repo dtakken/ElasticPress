@@ -238,6 +238,7 @@ Thank you to all the people who have already contributed to this repository via 
 [Maarten Bruna (@ictbeheer)](https://github.com/ictbeheer),
 [Dharmesh Patel (@iamdharmesh)](https://github.com/iamdharmesh),
 [Lucas Grzegorczyk (@furai)](https://github.com/furai),
+[Ananda Dhakal (@dhakalananda)](https://github.com/dhakalananda),
 and
 [@qazaqstan2025](https://github.com/qazaqstan2025).
 
