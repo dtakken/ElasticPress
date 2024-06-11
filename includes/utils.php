@@ -773,11 +773,21 @@ function get_asset_info( $slug, $attribute = null ) {
 function get_sync_url( bool $do_sync = false ) : string {
 	$page = 'admin.php?page=elasticpress-sync';
 	if ( $do_sync ) {
-		$page .= '&do_sync';
+		$page .= '&do_sync&ep_sync_nonce=' . wp_create_nonce( 'ep_sync_nonce' );
 	}
 	return ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) ?
 		network_admin_url( $page ) :
 		admin_url( $page );
+}
+
+/**
+ * Check if the `do_sync` parameter is set and the nonce is valid.
+ *
+ * @since 5.1.2
+ * @return boolean
+ */
+function isset_do_sync_parameter() : bool {
+	return isset( $_GET['do_sync'] ) && ! empty( $_GET['ep_sync_nonce'] ) && wp_verify_nonce( sanitize_key( $_GET['ep_sync_nonce'] ), 'ep_sync_nonce' );
 }
 
 /**

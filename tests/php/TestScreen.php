@@ -63,6 +63,10 @@ class TestScreen extends BaseTestCase {
 		if ( isset( $_GET['do_sync'] ) ) {
 			unset( $_GET['do_sync'] );
 		}
+
+		if ( isset( $_GET['ep_sync_nonce'] ) ) {
+			unset( $_GET['ep_sync_nonce'] );
+		}
 		// phpcs:enable
 	}
 
@@ -254,8 +258,9 @@ class TestScreen extends BaseTestCase {
 
 		add_filter( 'ep_install_status', $set_install_status );
 
-		$_GET['page']    = 'elasticpress';
-		$_GET['do_sync'] = 1;
+		$_GET['page']          = 'elasticpress';
+		$_GET['do_sync']       = 1;
+		$_GET['ep_sync_nonce'] = wp_create_nonce( 'ep_sync_nonce' );
 
 		ElasticPress\Installer::factory()->calculate_install_status();
 		ElasticPress\Screen::factory()->determine_screen();

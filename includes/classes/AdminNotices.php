@@ -116,12 +116,6 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( defined( 'EP_IS_NETWORK' ) && EP_IS_NETWORK ) {
-			$url = admin_url( 'network/admin.php?page=elasticpress&do_sync' );
-		} else {
-			$url = admin_url( 'admin.php?page=elasticpress&do_sync' );
-		}
-
 		return [
 			'html'    => sprintf( esc_html__( 'Autosuggest feature is enabled. If documents feature is enabled, your media will also become searchable in the frontend.', 'elasticpress' ) ),
 			'type'    => 'info',
@@ -177,7 +171,7 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( isset( $_GET['do_sync'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		if ( Utils\isset_do_sync_parameter() ) {
 			return false;
 		}
 
@@ -252,7 +246,7 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( isset( $_GET['do_sync'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		if ( Utils\isset_do_sync_parameter() ) {
 			return false;
 		}
 
@@ -316,7 +310,7 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( isset( $_GET['do_sync'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		if ( Utils\isset_do_sync_parameter() ) {
 			return false;
 		}
 
