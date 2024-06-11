@@ -85,7 +85,7 @@ For sure! Feel free to submit ideas or feedback in general to our [GitHub repo](
 
 __Security:__
 
-* Nonce verification for the sync triggered by some features activation. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda).
+* Missing nonce verification for the sync triggered during activation of some features. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda).
 
 
 = 5.1.1 - 2024-05-27 =

@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 **This is a security release affecting all previous versions of ElasticPress.**
 
 ### Security
-* Nonce verification for the sync triggered by some features activation. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda) via [#3929](https://github.com/10up/ElasticPress/pull/3929).
+* Missing nonce verification for the sync triggered during activation of some features. Props [@felipeelia](https://github.com/felipeelia) and [@dhakalananda](https://github.com/dhakalananda) via [#3929](https://github.com/10up/ElasticPress/pull/3929).
 
 ## [5.1.1] - 2024-05-27
 
