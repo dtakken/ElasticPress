@@ -36,7 +36,7 @@ jobs:
       run: sudo systemctl start mysql.service
 
     - name: Setup Elasticsearch
-      run: cd bin/es-docker/ && docker-compose build --build-arg ES_VERSION=${{ matrix.esVersion }} && docker-compose up -d
+      run: cd bin/es-docker/ && docker compose build --build-arg ES_VERSION=${{ matrix.esVersion }} && docker compose up -d
 
     - name: Check ES response
       run: curl --connect-timeout 5 --max-time 10 --retry 5 --retry-max-time 40 --retry-all-errors http://127.0.0.1:8890
