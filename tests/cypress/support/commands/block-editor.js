@@ -8,8 +8,15 @@ Cypress.Commands.add('openBlockSettingsSidebar', () => {
 				.contains('Block')
 				.click();
 		} else {
-			cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
-			cy.get('.edit-post-sidebar__panel-tab,.edit-post-sidebar__panel-tabs button')
+			cy.get(
+				`.edit-post-header__settings button[aria-label="Settings"],
+				.editor-header__settings button[aria-label="Settings"]`,
+			).click();
+			cy.get(
+				`.edit-post-sidebar__panel-tab,
+				.edit-post-sidebar__panel-tabs button,
+				.editor-sidebar__panel-tabs button`,
+			)
 				.contains('Block')
 				.click();
 		}
@@ -93,7 +100,7 @@ Cypress.Commands.add('supportsBlockTypography', { prevSubject: true }, (subject,
 			cy.get('.block-editor-block-inspector button[aria-label="Typography options"]').click();
 
 			cy.get('[aria-label="Typography options"] button, .popover-slot button')
-				.contains('Font size')
+				.contains(/Font size|Size/)
 				.as('fontSizeButton');
 			cy.get('@fontSizeButton').click();
 			cy.get('@fontSizeButton').click();
