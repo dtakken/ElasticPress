@@ -1,3 +1,5 @@
+/* global wpVersion */
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -136,19 +138,31 @@ Cypress.Commands.add('publishPost', (postData, viewPost) => {
 
 	if (newPostData.password && newPostData.password !== '') {
 		cy.get('h1.editor-post-title__input').click();
-		cy.get('body').then(($body) => {
-			const $button = $body.find('.edit-post-post-visibility__toggle');
-			if (!$button.is(':visible')) {
-				cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
-			}
-		});
-		cy.get('.edit-post-post-visibility__toggle').click();
-		cy.get('.editor-post-visibility__dialog-radio, .editor-post-visibility__radio').check(
-			'password',
-		);
-		cy.get(
-			'.editor-post-visibility__dialog-password-input, .editor-post-visibility__password-input',
-		).type(newPostData.password);
+		if (wpVersion === '6.0') {
+			cy.get('body').then(($body) => {
+				const $button = $body.find('.edit-post-post-visibility__toggle');
+				if (!$button.is(':visible')) {
+					cy.get('.edit-post-header__settings button[aria-label="Settings"]').click();
+				}
+			});
+			cy.get('.edit-post-post-visibility__toggle').click();
+			cy.get('.editor-post-visibility__dialog-radio, .editor-post-visibility__radio').check(
+				'password',
+			);
+			cy.get(
+				'.editor-post-visibility__dialog-password-input, .editor-post-visibility__password-input',
+			).type(newPostData.password);
+		} else {
+			cy.get('body').then(($body) => {
+				const $button = $body.find('.components-dropdown.editor-post-status');
+				if (!$button.is(':visible')) {
+					cy.get('.editor-header__settings button[aria-label="Settings"]').click();
+				}
+			});
+			cy.get('.components-dropdown.editor-post-status').click();
+			cy.get('.editor-change-status__password-fieldset input[type="checkbox"]').click();
+			cy.get('.editor-change-status__password-input input').type(newPostData.password);
+		}
 	}
 
 	if (newPostData.status && newPostData.status === 'draft') {
@@ -463,10 +477,8 @@ Cypress.Commands.add('createUser', (userData) => {
 
 	if (newUserDate.login) {
 		cy.visit('wp-login.php');
-		cy.get('#user_login').clear();
-		cy.get('#user_login').type(newUserDate.username);
-		cy.get('#user_pass').clear();
-		cy.get('#user_pass').type(`${newUserDate.password}{enter}`);
+		cy.get('#user_login').clearThenType(newUserDate.username);
+		cy.get('#user_pass').clearThenType(`${newUserDate.password}{enter}`);
 	}
 });
 
