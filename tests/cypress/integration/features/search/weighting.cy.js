@@ -233,7 +233,7 @@ describe('Post Search Feature - Weighting Functionality', () => {
 			.contains('_my_custom_field')
 			.closest('fieldset')
 			.find('input[type="checkbox"]')
-			.check();
+			.click();
 
 		/**
 		 * Save weighting settings.
