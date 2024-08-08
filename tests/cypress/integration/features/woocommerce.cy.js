@@ -147,7 +147,10 @@ describe('WooCommerce Feature', { tags: '@slow' }, () => {
 			// enable payment gateway.
 			cy.visitAdminPage('admin.php?page=wc-settings&tab=checkout&section=cod');
 			cy.get('#woocommerce_cod_enabled').check();
-			cy.get('.button-primary.woocommerce-save-button').click();
+			cy.get(
+				`.button-primary.woocommerce-save-button,
+				.components-button.is-primary.woocommerce-save-button`,
+			).click();
 
 			cy.logout();
 
