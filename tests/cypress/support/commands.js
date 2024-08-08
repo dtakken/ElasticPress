@@ -84,6 +84,13 @@ Cypress.Commands.add('createTerm', (data) => {
 });
 
 Cypress.Commands.add('clearThenType', { prevSubject: true }, (subject, text, force = false) => {
+	/**
+	 * Typing 'x' and immediately deleting it, as sometimes Cypress is too fast and
+	 * does not type the first character(s) correctly.
+	 *
+	 * @see https://github.com/cypress-io/cypress/issues/3817
+	 */
+	cy.wrap(subject).type('x');
 	cy.wrap(subject).clear();
 	cy.wrap(subject).type(text, { force });
 });
