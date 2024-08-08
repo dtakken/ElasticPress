@@ -183,14 +183,12 @@ describe('WooCommerce Feature', { tags: '@slow' }, () => {
 				if (wcVersion === '6.4.0') {
 					cy.get('#place_order').click();
 				} else {
-					cy.get('.wc-block-components-checkout-place-order-button').then(($el) => {
-						cy.log($el[0].outerHTML);
-					});
+					// eslint-disable-next-line cypress/no-unnecessary-waiting
+					cy.wait(2000);
 					cy.get('.wc-block-components-checkout-place-order-button').click();
 					cy.get('.wc-block-components-checkout-place-order-button').then(($el) => {
 						cy.log($el[0].outerHTML);
 					});
-					cy.get('.wc-block-components-checkout-place-order-button').click();
 					// eslint-disable-next-line cypress/no-unnecessary-waiting
 					cy.wait(5000);
 				}
