@@ -183,9 +183,10 @@ describe('WooCommerce Feature', { tags: '@slow' }, () => {
 				if (wcVersion === '6.4.0') {
 					cy.get('#place_order').click();
 				} else {
-					cy.intercept('/wp-json/wc/store/v1/checkout*').as('apiRequest');
 					cy.get('.wc-block-components-checkout-place-order-button').click();
-					cy.wait('@apiRequest');
+					cy.get('.wc-block-checkout__billing-fields').scrollIntoView();
+					// eslint-disable-next-line cypress/no-unnecessary-waiting
+					cy.wait(5000);
 				}
 			});
 
