@@ -184,13 +184,8 @@ describe('WooCommerce Feature', { tags: '@slow' }, () => {
 					cy.get('#place_order').click();
 				} else {
 					// eslint-disable-next-line cypress/no-unnecessary-waiting
-					cy.wait(2000);
+					cy.wait(1000);
 					cy.get('.wc-block-components-checkout-place-order-button').click();
-					cy.get('.wc-block-components-checkout-place-order-button').then(($el) => {
-						cy.log($el[0].outerHTML);
-					});
-					// eslint-disable-next-line cypress/no-unnecessary-waiting
-					cy.wait(5000);
 				}
 			});
 
