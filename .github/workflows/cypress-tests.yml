@@ -89,7 +89,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: cypress-artifact-${{ matrix.core.name }}-${{ matrix.testGroup }}
+        name: cypress-artifact-${{ matrix.esVersion }}-${{ matrix.core.name }}-${{ matrix.testGroup }}
         retention-days: 2
         path: |
           ${{ github.workspace }}/tests/cypress/screenshots/
@@ -98,7 +98,7 @@ jobs:
 
     - name: Stop Elasticsearch
       if: always()
-      run: cd bin/es-docker/ && docker-compose down
+      run: cd bin/es-docker/ && docker compose down
 
     - name: Test plugin uninstall
       if: always()
