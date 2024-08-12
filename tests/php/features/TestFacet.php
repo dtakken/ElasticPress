@@ -453,14 +453,14 @@ class TestFacet extends BaseTestCase {
 
 		parse_str( 'ep_filter_taxonomy=dolor,sit', $_GET );
 
-		$add_prefix_with_term = function( $filter ) {
+		$add_prefix_with_term = function( $filters ) {
 			$new_terms = [];
-			foreach ( $filter['taxonomies']['taxonomy']['terms'] as $key => $value ) {
+			foreach ( $filters['taxonomies']['taxonomy']['terms'] as $key => $value ) {
 				$new_terms[ 'cap-' . $key ] = $value;
 			}
 
-			$filter['taxonomies']['taxonomy']['terms'] = $new_terms;
-			return $filter;
+			$filters['taxonomies']['taxonomy']['terms'] = $new_terms;
+			return $filters;
 		};
 		add_filter( 'ep_facet_selected_filters', $add_prefix_with_term );
 
