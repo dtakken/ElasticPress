@@ -445,7 +445,15 @@ class Facets extends Feature {
 			}
 		}
 
-		return $filters;
+		/**
+		 * Filter selected filters.
+		 *
+		 * @hook ep_facet_selected_filters
+		 * @since 5.2.0
+		 * @param  {array} $filters Current filters
+		 * @return {array} New filters
+		 */
+		return apply_filters( 'ep_facet_selected_filters', $filters );
 	}
 
 	/**
@@ -608,7 +616,6 @@ class Facets extends Feature {
 		_deprecated_function( __METHOD__, '4.3.0', "\ElasticPress\Features::factory()->get_registered_feature( 'facets' )->types['taxonomy']->get_facetable_taxonomies()" );
 
 		return $this->types['taxonomy']->get_filter_name();
-
 	}
 
 	/**
