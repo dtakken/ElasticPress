@@ -934,24 +934,24 @@ class Post extends Indexable {
 		$formatted_args = $this->maybe_set_aggs( $formatted_args, $args, $filters );
 
 		/**
-		 * Filter formatted Elasticsearch [ost ]query (entire query)
+		 * Filter formatted Elasticsearch query (entire query)
 		 *
 		 * @hook ep_formatted_args
 		 * @param {array} $formatted_args Formatted Elasticsearch query
-		 * @param {array} $query_vars Query variables
-		 * @param {array} $query Query part
-		 * @return  {array} New query
+		 * @param {array} $args WP_Query variables
+		 * @param {object} $wp_query WP_Query object
+		 * @return {array} New query
 		 */
 		$formatted_args = apply_filters( 'ep_formatted_args', $formatted_args, $args, $wp_query );
 
 		/**
-		 * Filter formatted Elasticsearch [ost ]query (entire query)
+		 * Filter formatted Elasticsearch post query (entire query)
 		 *
 		 * @hook ep_post_formatted_args
 		 * @param {array} $formatted_args Formatted Elasticsearch query
-		 * @param {array} $query_vars Query variables
-		 * @param {array} $query Query part
-		 * @return  {array} New query
+		 * @param {array} $args WP_Query variables
+		 * @param {object} $wp_query WP_Query object
+		 * @return {array} New query
 		 */
 		$formatted_args = apply_filters( 'ep_post_formatted_args', $formatted_args, $args, $wp_query );
 
