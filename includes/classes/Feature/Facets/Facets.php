@@ -44,7 +44,7 @@ class Facets extends Feature {
 			( wp_is_block_theme()
 				? sprintf(
 					/* translators: Site Editor URL */
-					__( '   Adds <a href="%s">filter blocks</a> that administrators can add to the website’s templates and template parts, so that visitors can filter applicable content and search results by one or more taxonomy terms, metafields, and date ranges.', 'elasticpress' ),
+					__( 'Adds <a href="%s">filter blocks</a> that administrators can add to the website’s templates and template parts, so that visitors can filter applicable content and search results by one or more taxonomy terms, metafields, and date ranges.', 'elasticpress' ),
 					esc_url( admin_url( 'site-editor.php' ) )
 				)
 				: sprintf(
