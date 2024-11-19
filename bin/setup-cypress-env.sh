@@ -55,7 +55,7 @@ else
 fi
 
 # Set twentytwentyone as the active theme here, as 2025 won't work with WP 6.0
-./bin/wp-env-cli tests-wordpress "wp --allow-root theme enable twentytwentyone --network --activate"
+./bin/wp-env-cli tests-wordpress "wp --allow-root theme activate twentytwentyone"
 
 if [ ! -z $WP_VERSION ]; then
 	./bin/wp-env-cli tests-wordpress "wp --allow-root core update --version=${WP_VERSION} --force"
