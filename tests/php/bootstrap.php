@@ -11,7 +11,7 @@ set_time_limit( 0 );
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 if ( ! $_tests_dir ) {
-	$_tests_dir = '/tmp/wordpress-tests-lib';
+	$_tests_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress-tests-lib';
 }
 
 require_once $_tests_dir . '/includes/functions.php';
@@ -38,7 +38,7 @@ function load_plugin() {
 	$host = getenv( 'EP_HOST' );
 
 	if ( empty( $host ) ) {
-		$host = 'http://127.0.0.1:9200';
+		$host = 'http://127.0.0.1:8890';
 	}
 
 	update_option( 'ep_host', $host );
