@@ -906,7 +906,7 @@ class Autosuggest extends Feature {
 
 			$this->settings_schema[] = [
 				'disabled' => $set_in_wp_config,
-				'help'     => $set_in_wp_config ? __( 'This address will be exposed to the public.', 'elasticpress' ) : '',
+				'help'     => ! $set_in_wp_config ? __( 'A valid URL starting with <code>http://</code> or <code>https://</code>. This address will be exposed to the public.', 'elasticpress' ) : '',
 				'key'      => 'endpoint_url',
 				'label'    => __( 'Endpoint URL', 'elasticpress' ),
 				'type'     => 'url',
