@@ -38,7 +38,7 @@
     "env:start": "wp-env start && npm run env:install-tests-cli && npm run es:start",
     "env:stop": "wp-env stop && npm run es:stop",
     "env:reset": "wp-env clean all && npm run env:start && npm run cypress:setup",
-    "es:start": "cd bin/es-docker/ && docker compose build --build-arg ES_VERSION=${ES_VERSION-7.10.2} && docker compose up -d",
+    "es:start": "cd bin/es-docker/ && docker compose build --build-arg ES_VERSION=${ES_VERSION-8.16.1} && docker compose up -d",
     "es:stop": "cd bin/es-docker/ && docker compose down",
     "cypress:setup": "./bin/setup-cypress-env.sh",
     "cypress:open": "cypress open --config-file tests/cypress/config.js",
