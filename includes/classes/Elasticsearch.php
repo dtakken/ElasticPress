@@ -1735,7 +1735,8 @@ class Elasticsearch {
 	 * @param array $query Query to log.
 	 */
 	protected function add_query_log( $query ) {
-		if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG ) ) {
+		if ( apply_filters( 'ep_disable_query_logging', false ) && ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || 
+		( defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG ) ) ) {
 			$this->queries[] = $query;
 		}
 
