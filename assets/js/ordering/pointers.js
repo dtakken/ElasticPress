@@ -419,9 +419,7 @@ export class Pointers extends Component {
 																	CR
 																</span>
 															)}
-														<strong className="title">
-															{item.order} {title}
-														</strong>
+														<strong className="title">{title}</strong>
 														<div className="pointer-actions">
 															<span
 																className="dashicons dashicons-menu handle"
