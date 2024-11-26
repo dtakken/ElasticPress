@@ -113,23 +113,16 @@ export class Pointers extends Component {
 		const { title, defaultResults } = this.state;
 		let merged = defaultResults[title].slice();
 
-		const setIds = {};
-		merged.forEach((item) => {
-			setIds[item.ID] = item;
-		});
-
 		pointers = pointers.sort((a, b) => {
 			return a.order > b.order ? 1 : -1;
 		});
+		const pointersIds = pointers.map((pointer) => pointer.ID);
 
+		// Remove all custom pointers from the default results
+		merged = merged.filter((item) => pointersIds.indexOf(item.ID) === -1);
+
+		// Insert pointers into their proper location
 		pointers.forEach((pointer) => {
-			// Remove the original if a duplicate
-			if (setIds[pointer.ID]) {
-				delete merged[merged.indexOf(setIds[pointer.ID])];
-				merged = merged.filter((item) => item);
-			}
-
-			// Insert into proper location
 			merged.splice(parseInt(pointer.order, 10) - 1, 0, pointer);
 		});
 
@@ -426,7 +419,9 @@ export class Pointers extends Component {
 																	CR
 																</span>
 															)}
-														<strong className="title">{title}</strong>
+														<strong className="title">
+															{item.order} {title}
+														</strong>
 														<div className="pointer-actions">
 															<span
 																className="dashicons dashicons-menu handle"
