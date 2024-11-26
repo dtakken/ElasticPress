@@ -1730,14 +1730,14 @@ class Elasticsearch {
 	 * Query logging. Don't log anything to the queries property when
 	 * WP_DEBUG is not enabled. Calls action 'ep_add_query_log' if you
 	 * want to access the query outside of the ElasticPress plugin. This
-	 * runs regardless of debufg settings.
+	 * runs regardless of debug settings.
 	 *
 	 * @param array $query Query to log.
 	 */
 	protected function add_query_log( $query ) {
-		$wp_debug      = defined( 'WP_DEBUG' ) && WP_DEBUG;
-		$wp_ep_debug   = defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG;
-		
+		$wp_debug    = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		$wp_ep_debug = defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG;
+
 		/**
 		 * Filter query logging. Don't log anything to the queries property when true.
 		 *
