@@ -1736,7 +1736,7 @@ class Elasticsearch {
 	 */
 	protected function add_query_log( $query ) {
 		$wp_debug      = defined( 'WP_DEBUG' ) && WP_DEBUG;
-		$wp_ep_debug = defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG );
+		$wp_ep_debug   = defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG;
 		
 		/**
 		 * Filter query logging. Don't log anything to the queries property when true.
@@ -1746,7 +1746,7 @@ class Elasticsearch {
 		 * @return {bool} New value
 		 * @since  5.2.0
 		 */
-		$disable_query_logging = apply_filters( 'ep_disable_query_logging', false )
+		$disable_query_logging = apply_filters( 'ep_disable_query_logging', false );
 
 		if ( ! $disable_query_logging && ( $wp_debug || $wp_ep_debug ) ) {
 			$this->queries[] = $query;
