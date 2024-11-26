@@ -1735,7 +1735,15 @@ class Elasticsearch {
 	 * @param array $query Query to log.
 	 */
 	protected function add_query_log( $query ) {
-		if ( apply_filters( 'ep_disable_query_logging', false ) && ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || 
+		/**
+		 * Filter query logging. Don't log anything to the queries property when true.
+		 *
+		 * @hook ep_disable_query_logging
+		 * @param  {bool} Whether to log to the queries property. Defaults to false.
+		 * @return {bool} New value
+		 * @since  5.2.0
+		 */
+		if ( apply_filters( 'ep_disable_query_logging', false ) && ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ||
 		( defined( 'WP_EP_DEBUG' ) && WP_EP_DEBUG ) ) ) {
 			$this->queries[] = $query;
 		}
