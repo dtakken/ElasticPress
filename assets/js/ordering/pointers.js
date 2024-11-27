@@ -421,14 +421,6 @@ export class Pointers extends Component {
 															)}
 														<strong className="title">{title}</strong>
 														<div className="pointer-actions">
-															<span
-																className="dashicons dashicons-menu handle"
-																{...provided2.dragHandleProps}
-																title={__(
-																	'Drag post up or down to reposition',
-																	'elasticpress',
-																)}
-															/>
 															{item.order && (
 																<span
 																	role="button"
@@ -449,6 +441,14 @@ export class Pointers extends Component {
 																	</span>
 																</span>
 															)}
+															<span
+																className="dashicons dashicons-menu handle"
+																{...provided2.dragHandleProps}
+																title={__(
+																	'Drag post up or down to reposition',
+																	'elasticpress',
+																)}
+															/>
 														</div>
 													</div>
 												)}
