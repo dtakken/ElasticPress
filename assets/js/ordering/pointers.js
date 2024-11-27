@@ -1,7 +1,7 @@
 /**
  * External dependencies.
  */
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 /**
  * WordPress dependencies.
@@ -402,7 +402,7 @@ export class Pointers extends Component {
 
 											<Draggable
 												key={item.ID}
-												draggableId={item.ID}
+												draggableId={String(item.ID)}
 												index={draggableIndex}
 											>
 												{(provided2) => (

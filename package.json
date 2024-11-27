@@ -101,10 +101,10 @@
   },
   "dependencies": {
     "@10up/component-tooltip": "^2.0.0",
+    "@hello-pangea/dnd": "^17.0.0",
     "@wordpress/icons": "^9.34.0",
     "chart.js": "^2.9.4",
     "focus-trap-react": "^8.8.2",
-    "react-beautiful-dnd": "^11.0.5",
     "react-slider": "^2.0.6",
     "uuid": "^9.0.0"
   },
