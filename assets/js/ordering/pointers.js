@@ -183,6 +183,7 @@ export class Pointers extends Component {
 		pointers.push({
 			ID: id,
 			order: position,
+			type: 'custom-result',
 		});
 
 		this.setState({ pointers });
@@ -220,17 +221,12 @@ export class Pointers extends Component {
 		const pointers = [];
 
 		items.forEach((item, index) => {
-			if (item.order) {
-				// Reordering an existing pointer
+			// Reordering an existing pointer or adding a default post to the pointers array
+			if (item.order || item.ID === result.draggableId) {
 				pointers.push({
 					ID: item.ID,
 					order: index + 1,
-				});
-			} else if (item.ID === result.draggableId) {
-				// Adding a default post to the pointers array
-				pointers.push({
-					ID: item.ID,
-					order: index + 1,
+					type: item?.type || 'custom-result',
 				});
 			}
 		});
@@ -363,13 +359,13 @@ export class Pointers extends Component {
 									// Determine if this result is part of default search results or not
 									const isDefaultResult =
 										undefined !== defaultResultsById[item.ID];
-									const tooltipText =
-										isDefaultResult === true
-											? __('Return to original position', 'elasticpress')
-											: __(
-													'Remove custom result from results list',
-													'elasticpress',
-											  );
+									const itemType = item?.type || 'reordered';
+									const tooltipText = isDefaultResult
+										? __('Return to original position', 'elasticpress')
+										: __(
+												'Remove custom result from results list',
+												'elasticpress',
+										  );
 
 									return (
 										<Fragment key={item.ID}>
@@ -410,15 +406,12 @@ export class Pointers extends Component {
 														ref={provided2.innerRef}
 														{...provided2.draggableProps}
 													>
-														{item.order && isDefaultResult === true && (
+														{item.order && itemType === 'reordered' && (
 															<span className="pointer-type">RD</span>
 														)}
-														{item.order &&
-															isDefaultResult === false && (
-																<span className="pointer-type">
-																	CR
-																</span>
-															)}
+														{item.order && itemType !== 'reordered' && (
+															<span className="pointer-type">CR</span>
+														)}
 														<strong className="title">{title}</strong>
 														<div className="pointer-actions">
 															{item.order && (
