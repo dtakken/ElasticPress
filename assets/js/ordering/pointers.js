@@ -63,6 +63,7 @@ export class Pointers extends Component {
 			defaultResults: {},
 			searchText: '',
 			searchResults: {},
+			removedPointers: [],
 		};
 	}
 
@@ -101,9 +102,11 @@ export class Pointers extends Component {
 
 	removePointer = (pointer) => {
 		let { pointers } = this.state;
+		const { removedPointers } = this.state;
 
 		delete pointers[pointers.indexOf(pointer)];
 		pointers = pointers.filter((item) => item !== null);
+		removedPointers.push(pointer.ID);
 
 		this.setState({ pointers });
 	};
@@ -116,7 +119,7 @@ export class Pointers extends Component {
 		pointers = pointers.sort((a, b) => {
 			return a.order > b.order ? 1 : -1;
 		});
-		const pointersIds = pointers.map((pointer) => pointer.ID);
+		const pointersIds = pluck(pointers, 'ID');
 
 		// Remove all custom pointers from the default results
 		merged = merged.filter((item) => pointersIds.indexOf(item.ID) === -1);
@@ -289,6 +292,7 @@ export class Pointers extends Component {
 			defaultResults,
 			title,
 			pointers,
+			removedPointers,
 			searchText,
 			searchResults: searchResultsFromState,
 		} = this.state;
@@ -348,6 +352,8 @@ export class Pointers extends Component {
 											? index + 1
 											: index;
 
+									const isRemoved = removedPointers.includes(item.ID);
+
 									let { title } = item;
 									if (undefined === title) {
 										title =
@@ -357,15 +363,14 @@ export class Pointers extends Component {
 									}
 
 									// Determine if this result is part of default search results or not
-									const isDefaultResult =
-										undefined !== defaultResultsById[item.ID];
 									const itemType = item?.type || 'reordered';
-									const tooltipText = isDefaultResult
-										? __('Return to original position', 'elasticpress')
-										: __(
-												'Remove custom result from results list',
-												'elasticpress',
-										  );
+									const tooltipText =
+										itemType === 'reordered'
+											? __('Return to original position', 'elasticpress')
+											: __(
+													'Remove custom result from results list',
+													'elasticpress',
+											  );
 
 									return (
 										<Fragment key={item.ID}>
@@ -402,7 +407,9 @@ export class Pointers extends Component {
 											>
 												{(provided2) => (
 													<div
-														className={`pointer ${draggableIndex}`}
+														className={`pointer ${draggableIndex} ${
+															isRemoved ? 'removed' : ''
+														}`}
 														ref={provided2.innerRef}
 														{...provided2.draggableProps}
 													>

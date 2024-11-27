@@ -57,6 +57,10 @@
 			color: #0073aa;
 		}
 
+		& .removed .title {
+			color: #999;
+		}
+
 		& .pointer-actions {
 			float: right;
 
