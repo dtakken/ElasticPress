@@ -226,7 +226,7 @@ export class Pointers extends Component {
 				pointers.push({
 					ID: item.ID,
 					order: index + 1,
-					type: item?.type || 'custom-result',
+					type: item?.type || 'reordered',
 				});
 			}
 		});
