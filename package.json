@@ -101,7 +101,7 @@
   },
   "dependencies": {
     "@10up/component-tooltip": "^2.0.0",
-    "@hello-pangea/dnd": "^17.0.0",
+    "@hello-pangea/dnd": "^16.6.0",
     "@wordpress/icons": "^9.34.0",
     "chart.js": "^2.9.4",
     "focus-trap-react": "^8.8.2",
