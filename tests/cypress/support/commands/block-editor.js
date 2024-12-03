@@ -1,5 +1,7 @@
 /* global wpVersion */
 
+import { getIframe } from '../functions/get-iframe';
+
 Cypress.Commands.add('openBlockSettingsSidebar', () => {
 	cy.get('body').then(($el) => {
 		if ($el.hasClass('widgets-php')) {
@@ -179,4 +181,19 @@ Cypress.Commands.add('supportsBlockDimensions', { prevSubject: true }, (subject,
 	}
 
 	cy.wrap(subject).should('have.css', 'padding', '10px 15px');
+});
+
+Cypress.Commands.add('getBlockEditor', () => {
+	// Ensure the editor is loaded.
+	cy.get('.edit-post-visual-editor').should('exist');
+
+	return cy
+		.get('body')
+		.then(($body) => {
+			if ($body.find('iframe[name="editor-canvas"]').length) {
+				return getIframe('iframe[name="editor-canvas"]');
+			}
+			return $body;
+		})
+		.then(cy.wrap);
 });
