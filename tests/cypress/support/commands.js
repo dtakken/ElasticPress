@@ -130,7 +130,8 @@ Cypress.Commands.add('publishPost', (postData, viewPost) => {
 	const newPostData = { title: 'Test Post', content: 'Test content.', ...postData };
 
 	cy.visitAdminPage('post-new.php');
-	cy.get('h1.editor-post-title__input, #post-title-0').should('exist');
+	cy.getBlockEditor().as('iframe');
+	cy.get('@iframe').find('h1.editor-post-title__input, #post-title-0').should('exist');
 	cy.get('body').then(($body) => {
 		const welcomeGuide = $body.find(
 			'.edit-post-welcome-guide .components-modal__header button',
@@ -140,11 +141,15 @@ Cypress.Commands.add('publishPost', (postData, viewPost) => {
 		}
 	});
 
-	cy.get('h1.editor-post-title__input, #post-title-0').clearThenType(newPostData.title);
-	cy.get('.block-editor-default-block-appender__content').type(newPostData.content);
+	cy.get('@iframe')
+		.find('h1.editor-post-title__input, #post-title-0')
+		.clearThenType(newPostData.title);
+	cy.get('@iframe')
+		.find('.block-editor-default-block-appender__content')
+		.type(newPostData.content);
 
 	if (newPostData.password && newPostData.password !== '') {
-		cy.get('h1.editor-post-title__input').click();
+		cy.get('@iframe').find('h1.editor-post-title__input').click();
 		if (wpVersion === '6.0') {
 			cy.get('body').then(($body) => {
 				const $button = $body.find('.edit-post-post-visibility__toggle');

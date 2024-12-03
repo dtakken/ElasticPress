@@ -51,6 +51,8 @@ describe('Related Posts Feature', () => {
 			content: 'Inceptos tristique class ac eleifend leo.',
 		});
 
+		cy.getBlockEditor().as('iframe');
+
 		/**
 		 * On the last post insert a Related Posts block.
 		 */
@@ -62,7 +64,7 @@ describe('Related Posts Feature', () => {
 		 * Verify that the block is inserted into the editor, and contains the
 		 * expected content.
 		 */
-		cy.get('.wp-block.wp-block-elasticpress-related-posts').first().as('block');
+		cy.get('@iframe').find('.wp-block.wp-block-elasticpress-related-posts').first().as('block');
 		cy.get('@block')
 			.find('li')
 			.should('contain', 'Test related posts block #')
