@@ -1744,7 +1744,7 @@ class Elasticsearch {
 		 * @hook ep_disable_query_logging
 		 * @param  {bool} Whether to log to the queries property. Defaults to false.
 		 * @return {bool} New value
-		 * @since  5.2.0
+		 * @since  5.1.4
 		 */
 		$disable_query_logging = apply_filters( 'ep_disable_query_logging', false );
 

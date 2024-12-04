@@ -445,7 +445,7 @@ class TestFacet extends BaseTestCase {
 	/**
 	 * Test ep_facet_selected_filters filter.
 	 *
-	 * @since 5.2.0
+	 * @since 5.1.4
 	 * @group facets
 	 */
 	public function test_ep_facet_selected_filters() {
