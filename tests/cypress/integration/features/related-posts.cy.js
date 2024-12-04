@@ -59,6 +59,7 @@ describe('Related Posts Feature', () => {
 		cy.openBlockInserter();
 		cy.getBlocksList().should('contain.text', 'Related Posts');
 		cy.insertBlock('Related Posts');
+		cy.closeBlockInserter();
 
 		/**
 		 * Verify that the block is inserted into the editor, and contains the
