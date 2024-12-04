@@ -107,6 +107,7 @@ describe('Related Posts Feature', () => {
 		 * Update the post and visit the front end.
 		 */
 		cy.get('.editor-post-publish-button__button').click();
+		cy.wait(2000); // eslint-disable-line
 		cy.get('.components-snackbar__action').click();
 
 		/**
