@@ -492,6 +492,7 @@ class SearchOrdering extends Feature {
 				$final_order_data[] = [
 					'ID'    => intval( $order_data['ID'] ),
 					'order' => intval( $order_data['order'] ),
+					'type'  => ! empty( $order_data['type'] ) ? sanitize_text_field( $order_data['type'] ) : 'reordered',
 				];
 			} else {
 				$previous_post_ids[ intval( $order_data['ID'] ) ] = true;
