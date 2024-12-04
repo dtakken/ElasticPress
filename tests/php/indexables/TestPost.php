@@ -8240,6 +8240,46 @@ class TestPost extends BaseTestCase {
 	}
 
 	/**
+	 * Tests query doesn't return the post in if `ep_exclude_from_search` meta is set even in AJAX context
+	 *
+	 * @since 5.1.4
+	 * @group post
+	 */
+	public function test_exclude_from_search_query_in_ajax() {
+		// As we explicitly check if we are in admin context, setting it up here to be sure it mirrors the expected context
+		set_current_screen( 'ajax' );
+		add_filter( 'wp_doing_ajax', '__return_true' );
+		$this->assertTrue( is_admin() );
+		$this->assertTrue( wp_doing_ajax() );
+
+		add_filter( 'ep_ajax_wp_query_integration', '__return_true' );
+
+		$this->ep_factory->post->create_many(
+			2,
+			array(
+				'post_content' => 'find me in search',
+				'meta_input'   => array( 'ep_exclude_from_search' => false ),
+			)
+		);
+		$this->ep_factory->post->create(
+			array(
+				'post_content' => 'exclude from search',
+				'meta_input'   => array( 'ep_exclude_from_search' => true ),
+			)
+		);
+
+		ElasticPress\Elasticsearch::factory()->refresh_indices();
+
+		$args  = array(
+			's' => 'search',
+		);
+		$query = new \WP_Query( $args );
+
+		$this->assertTrue( $query->elasticsearch_success );
+		$this->assertEquals( 2, $query->post_count );
+	}
+
+	/**
 	 * Tests that post meta value should be empty when it is not set.
 	 *
 	 * @since 4.6.1
