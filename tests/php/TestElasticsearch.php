@@ -382,7 +382,7 @@ class TestElasticsearch extends BaseTestCase {
 	/**
 	 * Test the ep_disable_query_logging filter
 	 *
-	 * @since 5.2.0
+	 * @since 5.1.4
 	 * @group elasticsearch
 	 */
 	public function testEpDisableQueryLoggingFilter() {
