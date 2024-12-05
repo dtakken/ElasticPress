@@ -453,7 +453,7 @@ class TestProtectedContent extends BaseTestCase {
 		ElasticPress\Features::factory()->activate_feature( 'protected_content' );
 		ElasticPress\Features::factory()->setup_features();
 
-		$exact_match_id = $this->ep_factory->post->create(
+		$exact_match_id       = $this->ep_factory->post->create(
 			[
 				'post_title' => 'exact match - beautiful',
 				'post_date'  => '2021-12-31 23:59:59',
