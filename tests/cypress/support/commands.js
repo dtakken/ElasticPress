@@ -436,19 +436,23 @@ Cypress.Commands.add('createAutosavePost', (postData) => {
 	const newPostData = { title: 'Test Post', content: 'Test content.', ...postData };
 
 	cy.visitAdminPage('post-new.php');
-	cy.get('h1.editor-post-title__input, #post-title-0').should('exist');
+	cy.getBlockEditor().as('iframe');
+	cy.get('@iframe').find('h1.editor-post-title__input, #post-title-0').should('exist');
 	cy.get('body').then(($body) => {
 		const welcomeGuide = $body.find(
 			'.edit-post-welcome-guide .components-modal__header button',
 		);
-		cy.log(welcomeGuide);
 		if (welcomeGuide.length) {
 			welcomeGuide.click();
 		}
 	});
 
-	cy.get('h1.editor-post-title__input, #post-title-0').clearThenType(newPostData.title);
-	cy.get('.block-editor-default-block-appender__content').type(newPostData.content);
+	cy.get('@iframe')
+		.find('h1.editor-post-title__input, #post-title-0')
+		.clearThenType(newPostData.title);
+	cy.get('@iframe')
+		.find('.block-editor-default-block-appender__content')
+		.type(newPostData.content);
 
 	/**
 	 * Wait for autosave to complete.
