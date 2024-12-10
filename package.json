@@ -38,7 +38,7 @@
     "env:start": "wp-env start && npm run env:install-tests-cli && npm run es:start",
     "env:stop": "wp-env stop && npm run es:stop",
     "env:reset": "wp-env clean all && npm run env:start && npm run cypress:setup",
-    "es:start": "cd bin/es-docker/ && docker compose build --build-arg ES_VERSION=${ES_VERSION-7.10.2} && docker compose up -d",
+    "es:start": "cd bin/es-docker/ && docker compose build --build-arg ES_VERSION=${ES_VERSION-8.16.1} && docker compose up -d",
     "es:stop": "cd bin/es-docker/ && docker compose down",
     "cypress:setup": "./bin/setup-cypress-env.sh",
     "cypress:open": "cypress open --config-file tests/cypress/config.js",
@@ -101,10 +101,10 @@
   },
   "dependencies": {
     "@10up/component-tooltip": "^2.0.0",
+    "@hello-pangea/dnd": "^16.6.0",
     "@wordpress/icons": "^9.34.0",
     "chart.js": "^2.9.4",
-    "focus-trap-react": "^8.8.2",
-    "react-beautiful-dnd": "^11.0.5",
+    "focus-trap-react": "^9.0.2",
     "react-slider": "^2.0.6",
     "uuid": "^9.0.0"
   },

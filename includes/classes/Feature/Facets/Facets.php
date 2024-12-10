@@ -449,7 +449,7 @@ class Facets extends Feature {
 		 * Filter selected filters.
 		 *
 		 * @hook ep_facet_selected_filters
-		 * @since 5.2.0
+		 * @since 5.1.4
 		 * @param  {array} $filters Current filters
 		 * @return {array} New filters
 		 */

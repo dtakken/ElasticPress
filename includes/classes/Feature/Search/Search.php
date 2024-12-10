@@ -738,7 +738,8 @@ class Search extends Feature {
 	 * @param WP_Query $query WP Query object
 	 */
 	public function exclude_posts_from_search( $filters, $args, $query ) {
-		$bypass_exclusion_from_search = is_admin() || ! $query->is_search();
+		$bypass_exclusion_from_search = ( is_admin() && ! wp_doing_ajax() ) || ! $query->is_search();
+
 		/**
 		 * Filter whether the exclusion from the "exclude from search" checkbox should be applied
 		 *

@@ -378,4 +378,35 @@ class TestElasticsearch extends BaseTestCase {
 		];
 		$this->assertEqualsCanonicalizing( $expected, \ElasticPress\Elasticsearch::factory()->get_indices_comparison() );
 	}
+
+	/**
+	 * Test the ep_disable_query_logging filter
+	 *
+	 * @since 5.1.4
+	 * @group elasticsearch
+	 */
+	public function testEpDisableQueryLoggingFilter() {
+		$elasticsearch = new \ElasticPress\Elasticsearch();
+
+		$reflection = new \ReflectionClass( $elasticsearch );
+		$property   = $reflection->getProperty( 'queries' );
+		$property->setAccessible( true );
+		$method = $reflection->getMethod( 'add_query_log' );
+		$method->setAccessible( true );
+
+		$example_query = [ 'example_query' ];
+
+		add_filter( 'ep_disable_query_logging', '__return_true' );
+
+		$method->invokeArgs( $elasticsearch, [ $example_query ] );
+		$this->assertEmpty( $property->getValue( $elasticsearch ) );
+
+		remove_filter( 'ep_disable_query_logging', '__return_true' );
+
+		$method->invokeArgs( $elasticsearch, [ $example_query ] );
+
+		$queries = $property->getValue( $elasticsearch );
+		$this->assertCount( 1, $queries );
+		$this->assertSame( $example_query, $queries[0] );
+	}
 }

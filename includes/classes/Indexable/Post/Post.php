@@ -2976,4 +2976,44 @@ class Post extends Indexable {
 
 		return $mapping;
 	}
+
+	/**
+	 * Return all meta data added to the Weighting Dashboard plus all allowed keys via code.
+	 *
+	 * @since 5.1.4
+	 * @return array
+	 */
+	public function get_all_allowed_metas_manual() : array {
+		$post_types     = \ElasticPress\Indexables::factory()->get( 'post' )->get_indexable_post_types();
+		$search_feature = \ElasticPress\Features::factory()->get_registered_feature( 'search' );
+		$weighting      = $search_feature->weighting->get_weighting_configuration_with_defaults();
+		$fake_post      = new \WP_Post( new \stdClass() );
+
+		$all_allowed_metas = [];
+		foreach ( $post_types as $post_type ) {
+			$fake_post->post_type   = $post_type;
+			$allowed_protected_keys = apply_filters( 'ep_prepare_meta_allowed_protected_keys', [], $fake_post );
+
+			$selected_keys = [];
+			if ( ! empty( $weighting[ $post_type ] ) ) {
+				$selected_keys = array_map(
+					function ( $field ) {
+						if ( false === strpos( $field, 'meta.' ) ) {
+							return null;
+						}
+						$field_name_parts = explode( '.', $field );
+						return $field_name_parts[1];
+					},
+					array_keys( $weighting[ $post_type ] )
+				);
+				$selected_keys = array_filter( $selected_keys );
+			}
+
+			$allowed_keys = apply_filters( 'ep_prepare_meta_allowed_keys', array_merge( $allowed_protected_keys, $selected_keys ), $fake_post );
+
+			$all_allowed_metas = array_merge( $all_allowed_metas, $allowed_keys );
+		}
+
+		return array_unique( $all_allowed_metas );
+	}
 }
