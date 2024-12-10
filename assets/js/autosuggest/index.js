@@ -100,6 +100,8 @@ function triggerAutosuggestEvent(detail) {
 		 */
 		if (typeof window?.gtag === 'function') {
 			window.gtag('event', action, {
+				ep_autosuggest_search_term: detail.searchTerm,
+				ep_autosuggest_clicked_url: detail.url,
 				event_category: 'EP :: Autosuggest',
 				event_label: detail.url,
 				transport_type: 'beacon',
