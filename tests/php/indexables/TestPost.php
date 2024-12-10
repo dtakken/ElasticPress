@@ -9215,4 +9215,31 @@ class TestPost extends BaseTestCase {
 		$this->assertArrayHasKey( 'ep_aggregations', $query->query_vars );
 		$this->assertArrayHasKey( 'my_aggs', $query->query_vars['ep_aggregations'] );
 	}
+
+	/**
+	 * Test the get_all_allowed_metas_manual method
+	 *
+	 * @since 5.1.4
+	 * @group post
+	 */
+	public function test_get_all_allowed_metas_manual() {
+		// Remove product meta data to avoid some noise.
+		ElasticPress\Features::factory()->get_registered_feature( 'woocommerce' )->tear_down();
+
+		// Add some meta data using the Weighting Dashboard
+		$set_changed_weighting = function( $weighting_default ) {
+			$weighting_default['post']['meta.allowed_weighting_dashboard.value'] = [
+				'enabled' => true,
+				'weight'  => 1,
+			];
+			return $weighting_default;
+		};
+		add_filter( 'ep_weighting_configuration', $set_changed_weighting );
+
+		$allowed_metas_manual = ElasticPress\Indexables::factory()->get( 'post' )->get_all_allowed_metas_manual();
+
+		$this->assertContains( 'allowed_weighting_dashboard', $allowed_metas_manual );
+		// Added using the `ep_prepare_meta_allowed_keys` in the test set_up method.
+		$this->assertContains( 'test_key6', $allowed_metas_manual );
+	}
 }
